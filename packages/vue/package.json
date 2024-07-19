@@ -1,0 +1,16 @@
+{
+  "name": "@wuxianx/charts-vue",
+  "type": "module",
+  "main": "index.ts",
+  "peerDependencies": {
+    "echarts": "^5.5.1",
+    "vue": "^3.4.32"
+  },
+  "dependencies": {
+    "@wuxianx/charts": "workspace:^"
+  },
+  "devDependencies": {
+    "echarts": "^5.5.1",
+    "vue": "^3.4.32"
+  }
+}
