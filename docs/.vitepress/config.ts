@@ -1,5 +1,6 @@
 import _path from 'node:path'
 import { defineConfig } from 'vitepress'
+import container from 'markdown-it-container'
 import { snippet } from '@mdit/plugin-snippet'
 import { include } from '@mdit/plugin-include'
 
@@ -49,6 +50,27 @@ export default defineConfig({
       md.block.ruler.disable('snippet')
       md.use(snippet, commonMdConfig())
       md.use(include, commonMdConfig())
+
+      md.use(container, 'demo', {
+        validate(params) {
+          return params.trim().startsWith('demo ')
+        },
+
+        render(tokens, idx) {
+          if (tokens[idx].nesting === 1) {
+            const com = tokens[idx].info.trim().split(/\s+/)[1]
+
+            return `<demo>
+              <template #component>
+                <${com} />
+              </template>
+            `
+          }
+          else {
+            return '</demo>\n'
+          }
+        },
+      })
     },
   },
 })
