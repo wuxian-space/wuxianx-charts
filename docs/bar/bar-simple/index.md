@@ -9,4 +9,12 @@ const count = ref(0)
 
 <Bar />
 
-<<< ./index.vue
+<<< @/bar/bar-simple/index.vue
+
+## Props.ts
+
+<<< @@/core/bar-simple/props.ts
+
+## 原始文档
+
+<!-- @include: @@/core/bar-simple/README.md -->
