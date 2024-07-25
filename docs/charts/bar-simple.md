@@ -2,9 +2,7 @@
 
 ::: demo bar-simple
 
-test
-
-<<< @/demos/bar-simple.vue
+<<< @/demos/bar-simple.vue{7,11}
 
 :::
 
