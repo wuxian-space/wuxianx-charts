@@ -10,24 +10,24 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Charts', link: '/bar/bar-simple' },
+      { text: 'Charts', link: '/charts/bar-simple.md' },
     ],
 
     sidebar: [
       {
         text: 'Bar',
         collapsed: true,
-        base: '/bar/',
+        base: '/charts/',
         items: [
-          { text: 'BarSimple', link: 'bar-simple/index.md' },
+          { text: 'BarSimple', link: 'bar-simple.md' },
         ],
       },
       {
         text: 'Line',
         collapsed: true,
-        base: '/line/',
+        base: '/charts/',
         items: [
-          { text: 'LineSimple', link: 'line-simple/index.md' },
+          { text: 'LineSimple', link: 'line-simple.md' },
         ],
       },
     ],
@@ -42,6 +42,12 @@ export default defineConfig({
     },
     build: {
       minify: false,
+    },
+
+    resolve: {
+      alias: {
+        '@': _path.resolve(__dirname, '..'),
+      },
     },
   },
   markdown: {

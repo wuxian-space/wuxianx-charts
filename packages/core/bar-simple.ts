@@ -1,6 +1,10 @@
 import type { EChartsOption } from 'echarts'
 
-export function barSimple(data: Record<string, number>) {
+// #region parameters
+export type Data = Record<string, number>
+// #endregion parameters
+
+export function barSimple(data: Data) {
   return {
     xAxis: {
       type: 'category',
