@@ -3,16 +3,22 @@
 layout: home
 
 hero:
-  name: "wuxianx-charts"
-  text: "A wuxianx-charts website."
-  tagline: My great project tagline
+  name: "wuxianx charts"
+  text: "We pursue an extreme level of simplicity"
+  tagline: "Maintained by Wuxian Space"
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Get Started
+      link: /guide/
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Overview
+      link: /guide/overview
+    - theme: alt
+      text: Github
+      link: https://github.com/wuxian-space/wuxianx-charts
+    - theme: alt
+      text: Wuxian Space
+      link: https://wuxian.space
 
 features:
   - title: Feature A

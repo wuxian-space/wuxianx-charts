@@ -4,7 +4,7 @@ import { mockNumberObject } from '@wuxianx/mock'
 
 const data = mockNumberObject()
 
-const ec: DirectiveValue<'barSimple' | 'lineSimple'> = ['barSimple', data]
+const ec: DirectiveValue<'barSimple'> = ['barSimple', data]
 </script>
 
 <template>

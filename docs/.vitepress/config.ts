@@ -10,13 +10,20 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Charts', link: '/charts/bar-simple.md' },
+      { text: 'Charts', link: '/guide/overview' },
     ],
 
     sidebar: [
       {
+        text: 'Guide',
+        base: '/guide/',
+        items: [
+          { text: 'Getting Started', link: 'index.md' },
+          { text: 'Overview', link: 'overview.md' },
+        ],
+      },
+      {
         text: 'Bar',
-        collapsed: true,
         base: '/charts/',
         items: [
           { text: 'BarSimple', link: 'bar-simple.md' },
@@ -24,7 +31,6 @@ export default defineConfig({
       },
       {
         text: 'Line',
-        collapsed: true,
         base: '/charts/',
         items: [
           { text: 'LineSimple', link: 'line-simple.md' },
