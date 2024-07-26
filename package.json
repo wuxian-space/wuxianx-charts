@@ -41,7 +41,7 @@
     "docs:dev": "pnpm --filter docs dev",
     "test": "vitest",
     "release": "bumpp && npm publish",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit && pnpm -r typecheck",
     "lint": "eslint ."
   },
   "devDependencies": {
@@ -52,8 +52,10 @@
     "@mdit/plugin-snippet": "^0.12.0",
     "@types/lodash": "^4.17.7",
     "@types/lodash-es": "^4.17.12",
+    "@types/markdown-it-container": "^2.0.10",
     "@types/mockjs": "^1.0.10",
     "@types/node": "^20.14.10",
+    "@vue/tsconfig": "^0.5.1",
     "@wuxianx/charts": "workspace:^",
     "@wuxianx/charts-vue": "workspace:^",
     "@wuxianx/mock": "workspace:^",
@@ -74,7 +76,8 @@
     "typescript": "^5.5.3",
     "vite": "^5.3.3",
     "vitest": "^1.6.0",
-    "vue": "^3.4.31"
+    "vue": "^3.4.31",
+    "vue-tsc": "^2.0.29"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"

@@ -1,0 +1,14 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "."
+  },
+  "include": [
+    "env.d.ts",
+    "_demos/**/*",
+    ".vitepress/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

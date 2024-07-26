@@ -2,7 +2,7 @@ import _path from 'node:path'
 import { defineConfig } from 'vitepress'
 import container from 'markdown-it-container'
 import { snippet } from '@mdit/plugin-snippet'
-import { include } from '@mdit/plugin-include'
+import { type MarkdownItIncludeOptions, include } from '@mdit/plugin-include'
 
 export default defineConfig({
   title: 'wuxianx-charts',
@@ -60,15 +60,18 @@ export default defineConfig({
     config(md) {
       // Disable the built-in `snippet` feature of VitePress and switch to using the `@mdit/plugin-snippet` plugin instead.
       md.block.ruler.disable('snippet')
+
+      // @ts-expect-error eys
       md.use(snippet, commonMdConfig())
+      // @ts-expect-error yes
       md.use(include, commonMdConfig())
 
       md.use(container, 'demo', {
-        validate(params) {
+        validate(params: string) {
           return params.trim().startsWith('demo ')
         },
 
-        render(tokens, idx) {
+        render(tokens: any, idx: number) {
           if (tokens[idx].nesting === 1) {
             const com = tokens[idx].info.trim().split(/\s+/)[1]
 
@@ -106,5 +109,5 @@ function commonMdConfig() {
 
       return _path.join(root, ...aliasValue, path.replace(aliasKey, ''))
     },
-  }
+  } as MarkdownItIncludeOptions
 }
