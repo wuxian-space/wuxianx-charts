@@ -1,7 +1,7 @@
 import type { Plugin } from 'vue'
 import { kebabCase } from 'lodash-es'
-import lineSimple from './line-simple.vue'
 import barSimple from './bar-simple.vue'
+import lineSimple from './line-simple.vue'
 
 export const demos = {
   lineSimple,

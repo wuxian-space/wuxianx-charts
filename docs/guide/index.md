@@ -22,8 +22,7 @@ $ yarn add @wuxianx/charts-vue
 
 **Add it to your Vue project.**
 
-``` js {2,6}
-// main.ts
+``` js {2,6:line-numbers}
 import { createApp } from 'vue'
 import { barSimple, plugin as charts } from '@wuxianx/charts-vue'
 import App from './app.vue'
@@ -37,6 +36,6 @@ app.mount('#app')
 
 ::: demo bar-simple
 
-<<< @/demos/bar-simple.vue{7,11}
+<<< @demos/bar-simple.vue{7,11 vue:line-numbers}
 
 :::

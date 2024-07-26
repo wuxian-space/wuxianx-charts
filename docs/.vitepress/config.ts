@@ -92,15 +92,19 @@ function commonMdConfig() {
     currentPath: env => env.path,
     resolvePath: (path) => {
       const root = _path.resolve(__dirname, '..', '..')
-      if (path.startsWith('@@')) {
-        return _path.join(root, 'packages', path.slice(2))
-      }
 
-      if (path.startsWith('@')) {
-        return _path.join(root, 'docs', path.slice(1))
-      }
+      const alias = [
+        ['@@', 'packages'],
+        ['@demos', 'docs', '_demos'],
+        ['@', 'docs'],
+      ]
 
-      return path
+      const [aliasKey, ...aliasValue] = alias.find(([key]) => path.startsWith(key)) || []
+
+      if (!aliasKey)
+        return path
+
+      return _path.join(root, ...aliasValue, path.replace(aliasKey, ''))
     },
   }
 }

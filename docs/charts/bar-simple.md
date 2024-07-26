@@ -2,7 +2,7 @@
 
 ::: demo bar-simple
 
-<<< @/demos/bar-simple.vue{7,11}
+<<< @demos/bar-simple.vue{7,11}
 
 :::
 

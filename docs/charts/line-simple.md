@@ -2,7 +2,7 @@
 
 ::: demo line-simple
 
-<<< @/demos/line-simple.vue{6-9,13}
+<<< @demos/line-simple.vue{5-9,13}
 
 :::
 
