@@ -40,6 +40,7 @@
     "prepublishOnly": "nr build",
     "docs:dev": "pnpm --filter docs dev",
     "test": "vitest",
+    "build": "pnpm -r build",
     "release": "bumpp && npm publish",
     "typecheck": "tsc --noEmit && pnpm -r typecheck",
     "lint": "eslint ."
