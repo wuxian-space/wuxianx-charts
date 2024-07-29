@@ -3,7 +3,6 @@
 ## Installation
 
 ::: code-group
-
 ```bash [PNPM]
 $ pnpm add @wuxianx/charts-vue
 ```
@@ -15,7 +14,6 @@ $ npm install @wuxianx/charts-vue
 ```bash [Yarn]
 $ yarn add @wuxianx/charts-vue
 ```
-
 :::
 
 ## Usage
@@ -35,7 +33,17 @@ app.mount('#app')
 **Use it in your component.**
 
 ::: demo bar-simple
-
 <<< @demos/bar-simple.vue{7,11 vue:line-numbers}
+:::
 
+## Reactive chart
+
+Use `v-ec.watch` and pass in a `ref` to achieve basic reactive chart updates.
+
+::: warning
+when reassigning, do not use `ec.value = {...}` directly. Please refer to lines 9 and 10.
+:::
+
+::: demo guide-watch
+<<< @demos/guide-watch.vue{5,8,9,15 vue:line-numbers}
 :::

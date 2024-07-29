@@ -1,5 +1,5 @@
 import type { Directive, Plugin } from 'vue'
-import { unref } from 'vue'
+import { unref, watch } from 'vue'
 import * as echarts from 'echarts'
 
 import {
@@ -19,32 +19,70 @@ interface Charts {
 
 type ChartKey = keyof Charts
 
-export type DirectiveValue<T extends ChartKey> = [T, ...Parameters<Charts[T]>]
+export type WuxianChartsArrayValue<T extends ChartKey> = [T, ...Parameters<Charts[T]>]
+export interface WuxianChartsObjectValue<T extends ChartKey> { name: T, args: Parameters<Charts[T]>, ec?: echarts.ECharts }
 
-export function directive(use: PluginOptions['use']): Directive<HTMLElement, any> {
-  return (el, binding) => {
-    const value = unref(binding.value)
-    const params = unref(isPlainObject(value) ? value.data : value)
-    const [key, ...args] = params as [ChartKey, ...any[]]
+type WuxianChartsValue<T extends ChartKey> = WuxianChartsArrayValue<T> | WuxianChartsObjectValue<T>
 
-    if (!use?.[key]) {
-      console.warn(`[@wuxianx/chart-vue]: "${key}" is not registered yet.`)
-      return
-    }
+export function directive(use: WuxianChartsPluginOptions['use']): Directive<HTMLElement, WuxianChartsValue<ChartKey>> {
+  return {
+    mounted(el, binding) {
+      let ec = echarts.getInstanceByDom(el)
+      if (!ec)
+        ec = echarts.init(el)
 
-    let ec = echarts.getInstanceByDom(el)
-    if (!ec)
-      ec = echarts.init(el)
+      setOption()
 
-    if (isPlainObject(binding.value))
-      binding.value.ec = ec
+      if (binding.modifiers.watch) {
+        watch(binding.value, setOption, { deep: true })
+      }
 
-    // @ts-expect-error ignore
-    ec.setOption(use[key](...args))
+      function formatValue(): [ChartKey, ...WuxianChartsValue<any>[]] | null {
+        const value = unref(binding.value)
+
+        if (Array.isArray(binding.value)) {
+          const [key, ...args] = value as WuxianChartsArrayValue<ChartKey>
+          return [key, args]
+        }
+
+        else if (isPlainObject(binding.value)) {
+          const { args, name } = value as WuxianChartsObjectValue<ChartKey>
+          if (Array.isArray(args)) {
+            return [name, args]
+          }
+
+          return [name, [args]]
+        }
+
+        else {
+          console.warn(`[@wuxianx/chart-vue]: Invalid value: ${value}`)
+          return null
+        }
+      }
+
+      function setOption() {
+        const value = formatValue()
+        if (!value)
+          return
+
+        const [key, args] = value
+
+        if (!use?.[key]) {
+          console.warn(`[@wuxianx/chart-vue]: "${key}" is not registered yet.`)
+          return
+        }
+
+        if (isPlainObject(binding.value))
+          (binding.value as WuxianChartsObjectValue<any>).ec = ec
+
+        // @ts-expect-error ignore
+        ec.setOption(use[key](...args))
+      }
+    },
   }
 }
 
-export interface PluginOptions {
+export interface WuxianChartsPluginOptions {
   /**
    * @default 'ec'
    */
@@ -52,7 +90,7 @@ export interface PluginOptions {
 
   use: Partial<Charts>
 }
-export function plugin(options: PluginOptions) {
+export function plugin(options: WuxianChartsPluginOptions) {
   const { name, use } = options
 
   return {
