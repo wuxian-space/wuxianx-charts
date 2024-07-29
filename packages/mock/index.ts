@@ -1,4 +1,4 @@
-import mock from 'mockjs'
+import * as mock from 'mockjs'
 
 export interface MockNumberObjectOptions {
   count?: number

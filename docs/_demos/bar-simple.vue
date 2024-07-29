@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { WuxianChartsValue } from '@wuxianx/charts-vue'
+import type { WuxianChartsArrayValue } from '@wuxianx/charts-vue'
 import { mockNumberObject } from '@wuxianx/mock'
 
 const data = mockNumberObject()
 
-const ec: WuxianChartsValue<'barSimple'> = ['barSimple', data]
+const ec: WuxianChartsArrayValue<'barSimple'> = ['barSimple', data]
 </script>
 
 <template>
