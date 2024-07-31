@@ -14,10 +14,10 @@ function update() {
   <div>
     <div v-ec.watch="ec" style="width: 100%; height: 300px;" />
 
-    <pre>{{ ec }}</pre>
-
     <t-button block @click="update">
-      Update
+      Refresh
     </t-button>
+
+    <pre>{{ ec }}</pre>
   </div>
 </template>

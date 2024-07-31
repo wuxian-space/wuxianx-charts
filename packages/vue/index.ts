@@ -1,6 +1,5 @@
 import type { Directive, Plugin } from 'vue'
 import { unref, watch } from 'vue'
-import * as echarts from 'echarts'
 
 import {
   barSimple,
@@ -22,17 +21,14 @@ interface Charts {
 
 type ChartKey = keyof Charts
 
-export type WuxianChartsArrayValue<T extends ChartKey> = [T, ...Parameters<Charts[T]>]
-export interface WuxianChartsObjectValue<T extends ChartKey> { name: T, args: Parameters<Charts[T]>, ec?: echarts.ECharts }
+export type WuxianChartsValue<T extends ChartKey> = [T, ...Parameters<Charts[T]>]
 
-type WuxianChartsValue<T extends ChartKey> = WuxianChartsArrayValue<T> | WuxianChartsObjectValue<T>
-
-export function directive(use: WuxianChartsPluginOptions['use']): Directive<HTMLElement, WuxianChartsValue<ChartKey>> {
+export function directive(ec: any, use: WuxianChartsPluginOptions['use']): Directive<HTMLElement, WuxianChartsValue<ChartKey>> {
   return {
     mounted(el, binding) {
-      let ec = echarts.getInstanceByDom(el)
-      if (!ec)
-        ec = echarts.init(el)
+      let chart = ec.getInstanceByDom(el)
+      if (!chart)
+        chart = ec.init(el)
 
       setOption()
 
@@ -44,17 +40,8 @@ export function directive(use: WuxianChartsPluginOptions['use']): Directive<HTML
         const value = unref(binding.value)
 
         if (Array.isArray(binding.value)) {
-          const [key, ...args] = value as WuxianChartsArrayValue<ChartKey>
+          const [key, ...args] = value as WuxianChartsValue<ChartKey>
           return [key, args]
-        }
-
-        else if (isPlainObject(binding.value)) {
-          const { args, name } = value as WuxianChartsObjectValue<ChartKey>
-          if (Array.isArray(args)) {
-            return [name, args]
-          }
-
-          return [name, [args]]
         }
 
         else {
@@ -75,11 +62,8 @@ export function directive(use: WuxianChartsPluginOptions['use']): Directive<HTML
           return
         }
 
-        if (isPlainObject(binding.value))
-          (binding.value as WuxianChartsObjectValue<any>).ec = ec
-
         // @ts-expect-error ignore
-        ec.setOption(use[key](...args))
+        chart.setOption(use[key](...args))
       }
     },
   }
@@ -91,18 +75,19 @@ export interface WuxianChartsPluginOptions {
    */
   name?: string
 
+  /**
+   * echarts
+   */
+  ec: any
+
   use: Partial<Charts>
 }
 export function plugin(options: WuxianChartsPluginOptions) {
-  const { name, use } = options
+  const { name, use, ec } = options
 
   return {
     install(app) {
-      app.directive(name || 'ec', directive(use))
+      app.directive(name || 'ec', directive(ec, use))
     },
   } as Plugin
-}
-
-function isPlainObject(v: any) {
-  return Object.prototype.toString.call(v) === '[object Object]'
 }

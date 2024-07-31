@@ -4,15 +4,15 @@
 
 ::: code-group
 ```bash [PNPM]
-$ pnpm add @wuxianx/charts-vue
+$ pnpm add @wuxianx/charts-vue echarts
 ```
 
 ```bash [NPM]
-$ npm install @wuxianx/charts-vue
+$ npm install @wuxianx/charts-vue echarts
 ```
 
 ```bash [Yarn]
-$ yarn add @wuxianx/charts-vue
+$ yarn add @wuxianx/charts-vue echarts
 ```
 :::
 
@@ -20,20 +20,21 @@ $ yarn add @wuxianx/charts-vue
 
 **Add it to your Vue project.**
 
-``` js {2,6:line-numbers}
+``` js {2,3,7:line-numbers}
 import { createApp } from 'vue'
-import { barSimple, plugin as charts } from '@wuxianx/charts-vue'
+import * as echarts from 'echarts'
+import { barSimple, radarRainbow, plugin as wuxianxCharts } from '@wuxianx/charts-vue'
 import App from './app.vue'
 
 const app = createApp(App)
-app.use(charts({ use: { barSimple } }))
+app.use(wuxianxCharts({ use: { barSimple, radarRainbow }, ec: echarts }))
 app.mount('#app')
 ```
 
 **Use it in your component.**
 
-::: demo bar-simple
-<<< @demos/bar-simple.vue{7,11 vue:line-numbers}
+::: demo line-simple
+<<< @demos/line-simple.vue{6-9,13 vue:line-numbers}
 :::
 
 ## Reactive chart
@@ -46,4 +47,12 @@ when reassigning, do not use `ec.value = {...}` directly. Please refer to lines 
 
 ::: demo guide-watch
 <<< @demos/guide-watch.vue{5,8,9,15 vue:line-numbers}
+:::
+
+## ECharts Instance
+
+If you need to obtain the **echarts instance**, you can use the `echarts.getInstanceByDom` method. Please refer to the following example:
+
+::: demo guide-ec-instance
+<<< @demos/guide-ec-instance.vue{5-9,11,14,15,34 vue:line-numbers}
 :::
