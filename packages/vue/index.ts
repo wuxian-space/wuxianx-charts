@@ -5,16 +5,19 @@ import * as echarts from 'echarts'
 import {
   barSimple,
   lineSimple,
+  radarRainbow,
 } from '@wuxianx/charts'
 
 export {
   lineSimple,
   barSimple,
+  radarRainbow,
 }
 
 interface Charts {
   lineSimple: typeof lineSimple
   barSimple: typeof barSimple
+  radarRainbow: typeof radarRainbow
 }
 
 type ChartKey = keyof Charts
