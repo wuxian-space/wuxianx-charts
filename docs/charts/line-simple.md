@@ -8,4 +8,4 @@
 
 ## Parameters
 
-<<< @@/core/line-simple.ts#parameters-types
+<<< @@/charts/line-simple.ts#parameters-types

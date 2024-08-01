@@ -3,7 +3,7 @@
   "type": "module",
   "main": "index.ts",
   "peerDependencies": {
-    "echarts": "^5.5.1",
+    "echarts": "^5",
     "vue": "^3.4.32"
   },
   "dependencies": {
@@ -12,5 +12,8 @@
   "devDependencies": {
     "echarts": "^5.5.1",
     "vue": "^3.4.32"
+  },
+  "buildOptions": {
+    "name": "WuxianxChartsVue"
   }
 }

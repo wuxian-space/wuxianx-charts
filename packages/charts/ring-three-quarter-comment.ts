@@ -1,4 +1,4 @@
-import { merge } from 'lodash-es'
+import merge from 'lodash.merge'
 import type { EChartsOption, PieSeriesOption } from 'echarts'
 
 // #region parameters-types
@@ -7,7 +7,7 @@ export type Data = { name: string, value: number, unit: string }[]
 /**
  * @default defaultOptions
  */
-export interface Options {
+export interface Options extends Record<string, unknown> {
   colors?: string[]
   ringBg?: string
   textColors?: {

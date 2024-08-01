@@ -1,0 +1,18 @@
+{
+  "name": "@wuxianx/charts",
+  "type": "module",
+  "main": "index.ts",
+  "peerDependencies": {
+    "echarts": "^5"
+  },
+  "buildOptions": {
+    "name": "WuxianxCharts"
+  },
+  "dependencies": {
+    "lodash.merge": "^4.6.2"
+  },
+  "devDependencies": {
+    "@types/lodash.merge": "^4.6.9",
+    "vue": "^3.4.32"
+  }
+}

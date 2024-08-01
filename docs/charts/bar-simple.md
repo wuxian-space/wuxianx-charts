@@ -8,4 +8,4 @@
 
 ## Parameters
 
-<<< @@/core/bar-simple.ts#parameters-types
+<<< @@/charts/bar-simple.ts#parameters-types

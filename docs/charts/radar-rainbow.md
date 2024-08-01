@@ -8,8 +8,8 @@
 
 ## Default Parameters
 
-<<< @@/core/radar-rainbow.ts#default-parameters
+<<< @@/charts/radar-rainbow.ts#default-parameters
 
 ## Parameters Types
 
-<<< @@/core/radar-rainbow.ts#parameters-types
+<<< @@/charts/radar-rainbow.ts#parameters-types

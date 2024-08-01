@@ -1,8 +1,0 @@
-{
-  "name": "@wuxianx/charts",
-  "type": "module",
-  "main": "index.ts",
-  "peerDependencies": {
-    "echarts": "^5.5.1"
-  }
-}

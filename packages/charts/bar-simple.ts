@@ -1,4 +1,4 @@
-import { merge } from 'lodash-es'
+import merge from 'lodash.merge'
 import type { EChartsOption } from 'echarts'
 
 // #region parameters-types
@@ -7,8 +7,8 @@ export type Data = Record<string, number>
 export type Options = Partial<EChartsOption>
 // #endregion parameters-types
 
-export function lineSimple(data: Data, options?: Options) {
-  return merge({}, {
+export function barSimple(data: Data, options?: Options) {
+  const rest = merge({}, {
     xAxis: {
       type: 'category',
       data: Object.keys(data),
@@ -19,8 +19,10 @@ export function lineSimple(data: Data, options?: Options) {
     series: [
       {
         data: Object.values(data),
-        type: 'line',
+        type: 'bar',
       },
     ],
   }, options) as EChartsOption
+
+  return rest
 }

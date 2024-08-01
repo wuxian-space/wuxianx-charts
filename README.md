@@ -9,7 +9,6 @@ _description_
 
 ## Todo
 
-### Core
 - [ ] 图表新增 Mock 功能，方便用来做 demo 展示
 - [ ] 复杂图表设计，应包含 Props、Events、Methods
 - [ ] 更多的图表开发

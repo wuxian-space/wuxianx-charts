@@ -8,8 +8,8 @@
 
 ## Default Parameters
 
-<<< @@/core/ring-three-quarter-comment.ts#default-parameters
+<<< @@/charts/ring-three-quarter-comment.ts#default-parameters
 
 ## Parameters Types
 
-<<< @@/core/ring-three-quarter-comment.ts#parameters-types
+<<< @@/charts/ring-three-quarter-comment.ts#parameters-types

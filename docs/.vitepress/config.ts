@@ -10,7 +10,7 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Charts', link: '/guide/overview' },
+      { text: 'Charts', activeMatch: '(guide|charts)', link: '/guide/overview' },
     ],
 
     sidebar: [
