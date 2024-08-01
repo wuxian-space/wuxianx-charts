@@ -5,18 +5,21 @@ import {
   barSimple,
   lineSimple,
   radarRainbow,
+  ringThreeQuarterComment,
 } from '@wuxianx/charts'
 
 export {
   lineSimple,
   barSimple,
   radarRainbow,
+  ringThreeQuarterComment,
 }
 
 interface Charts {
   lineSimple: typeof lineSimple
   barSimple: typeof barSimple
   radarRainbow: typeof radarRainbow
+  ringThreeQuarterComment: typeof ringThreeQuarterComment
 }
 
 type ChartKey = keyof Charts

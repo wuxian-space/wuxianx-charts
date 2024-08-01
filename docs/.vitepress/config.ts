@@ -43,6 +43,16 @@ export default defineConfig({
           { text: 'RadarRainbow', link: 'radar-rainbow.md' },
         ],
       },
+      {
+        text: 'Ring',
+        base: '/charts/',
+        items: [
+          {
+            text: 'RingThreeQuarterComment',
+            link: 'ring-three-quarter-comment.md',
+          },
+        ],
+      },
     ],
 
     socialLinks: [

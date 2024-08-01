@@ -5,6 +5,7 @@ import lineSimple from './line-simple.vue'
 import guideWatch from './guide-watch.vue'
 import guideEcInstance from './guide-ec-instance.vue'
 import radarRainbow from './radar-rainbow.vue'
+import ringThreeQuarterComment from './ring-three-quarter-comment.vue'
 
 export const demos = {
   guideWatch,
@@ -13,6 +14,7 @@ export const demos = {
   lineSimple,
   barSimple,
   radarRainbow,
+  ringThreeQuarterComment,
 }
 
 export default {
