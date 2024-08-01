@@ -2,39 +2,6 @@
   "type": "module",
   "version": "0.0.0",
   "packageManager": "pnpm@9.4.0",
-  "description": "_description_",
-  "author": "Anthony Fu <anthonyfu117@hotmail.com>",
-  "license": "MIT",
-  "funding": "https://github.com/sponsors/wuxian-space",
-  "homepage": "https://github.com/wuxian-space/wuxianx-charts#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wuxian-space/wuxianx-charts.git"
-  },
-  "bugs": "https://github.com/wuxian-space/wuxianx-charts/issues",
-  "keywords": [],
-  "sideEffects": false,
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    }
-  },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/*",
-        "./dist/index.d.ts"
-      ]
-    }
-  },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "prepare": "simple-git-hooks",
     "prepublishOnly": "nr build",
@@ -42,6 +9,7 @@
     "test": "vitest",
     "build": "node scripts/build.js",
     "release": "bumpp && npm publish",
+    "release-packages": "node scripts/release-packages.js",
     "typecheck": "tsc --noEmit && pnpm -r typecheck",
     "lint": "eslint ."
   },
