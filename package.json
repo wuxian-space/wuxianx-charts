@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1-beta.1",
   "packageManager": "pnpm@9.4.0",
   "scripts": {
     "prepare": "simple-git-hooks",
@@ -8,7 +8,7 @@
     "docs:dev": "pnpm --filter docs dev",
     "test": "vitest",
     "build": "node scripts/build.js",
-    "release": "bumpp && npm publish",
+    "release": "bumpp package.json packages/**/package.json",
     "release-packages": "node scripts/release-packages.js",
     "typecheck": "tsc --noEmit && pnpm -r typecheck",
     "lint": "eslint ."
