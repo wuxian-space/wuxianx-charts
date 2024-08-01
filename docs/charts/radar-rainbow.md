@@ -1,7 +1,9 @@
 # Radar Rainbow
 
 ::: demo radar-rainbow
+
 <<< @demos/radar-rainbow.vue
+
 :::
 
 ## Default Parameters

@@ -1,11 +1,11 @@
 import { merge } from 'lodash-es'
 import type { EChartsOption } from 'echarts'
 
-// #region parameters
+// #region parameters-types
 export type Data = Record<string, number>
 
 export type Options = Partial<EChartsOption>
-// #endregion parameters
+// #endregion parameters-types
 
 export function lineSimple(data: Data, options?: Options) {
   return merge({}, {

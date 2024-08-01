@@ -2,10 +2,10 @@
 
 ::: demo line-simple
 
-<<< @demos/line-simple.vue{5-9,13}
+<<< @demos/line-simple.vue
 
 :::
 
 ## Parameters
 
-<<< @@/core/line-simple.ts#parameters
+<<< @@/core/line-simple.ts#parameters-types

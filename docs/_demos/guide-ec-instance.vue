@@ -2,16 +2,16 @@
 import { ref } from 'vue'
 import { getInstanceByDom } from 'echarts'
 
-const ec = ref(['radarRainbow', [
+const data = [
   [2016, { Perez: 75, Harris: 99, Walker: 89, Davis: 51, Johnson: 86 }],
   [2017, { Perez: 85, Harris: 89, Walker: 59, Davis: 72, Johnson: 39 }],
   [2018, { Perez: 35, Harris: 59, Walker: 58, Davis: 63, Johnson: 49 }],
-]])
+]
 
-const chartRef = ref()
+const el = ref()
 
 function exportChart() {
-  const ecInstance = getInstanceByDom(chartRef.value)
+  const ecInstance = getInstanceByDom(el.value)
   const src = ecInstance.getDataURL({ type: 'png' })
 
   downloadBase64File(src)
@@ -31,7 +31,7 @@ function downloadBase64File(data) {
 
 <template>
   <div>
-    <div ref="chartRef" v-ec.watch="ec" style="width: 100%; height: 500px;" />
+    <div ref="el" v-ec="['radarRainbow', data]" style="width: 100%; height: 500px;" />
 
     <t-button block style="margin-top: 10px;" @click="exportChart">
       Download

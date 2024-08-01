@@ -8,7 +8,5 @@ const data = [
 </script>
 
 <template>
-  <div
-    v-ec="['ringThreeQuarterComment', data]" style="width: 100%; height: 500px;"
-  />
+  <div v-ec="['ringThreeQuarterComment', data]" style="width: 100%; height: 500px;" />
 </template>

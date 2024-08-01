@@ -2,10 +2,10 @@
 
 ::: demo bar-simple
 
-<<< @demos/bar-simple.vue{7,11}
+<<< @demos/bar-simple.vue
 
 :::
 
 ## Parameters
 
-<<< @@/core/bar-simple.ts#parameters
+<<< @@/core/bar-simple.ts#parameters-types

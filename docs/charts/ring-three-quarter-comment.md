@@ -1,7 +1,9 @@
 # Radar Rainbow
 
 ::: demo ring-three-quarter-comment
-<<< @demos/ring-three-quarter-comment.vue{11 vue:line-numbers}
+
+<<< @demos/ring-three-quarter-comment.vue
+
 :::
 
 ## Default Parameters

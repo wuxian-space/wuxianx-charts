@@ -23,18 +23,18 @@ $ yarn add @wuxianx/charts-vue echarts
 ``` js {2,3,7:line-numbers}
 import { createApp } from 'vue'
 import * as echarts from 'echarts'
-import { barSimple, radarRainbow, plugin as wuxianxCharts } from '@wuxianx/charts-vue'
+import { barSimple, lineSimple, radarRainbow, plugin as wuxianxCharts } from '@wuxianx/charts-vue'
 import App from './app.vue'
 
 const app = createApp(App)
-app.use(wuxianxCharts({ use: { barSimple, radarRainbow }, ec: echarts }))
+app.use(wuxianxCharts({ use: { barSimple, lineSimple, radarRainbow }, ec: echarts }))
 app.mount('#app')
 ```
 
 **Use it in your component.**
 
-::: demo line-simple
-<<< @demos/line-simple.vue{6-9,13 vue:line-numbers}
+::: demo bar-simple
+<<< @demos/bar-simple.vue
 :::
 
 ## Reactive chart
@@ -42,11 +42,11 @@ app.mount('#app')
 Use `v-ec.watch` and pass in a `ref` to achieve basic reactive chart updates.
 
 ::: warning
-when reassigning, do not use `ec.value = {...}` directly. Please refer to lines 9 and 10.
+Please note that this solution does not support deep listening and can only assign values by replacing with new data. Please refer to the following example:
 :::
 
 ::: demo guide-watch
-<<< @demos/guide-watch.vue{5,8,9,15 vue:line-numbers}
+<<< @demos/guide-watch.vue{14,17-24 vue:line-numbers}
 :::
 
 ## ECharts Instance
@@ -54,5 +54,5 @@ when reassigning, do not use `ec.value = {...}` directly. Please refer to lines 
 If you need to obtain the **echarts instance**, you can use the `echarts.getInstanceByDom` method. Please refer to the following example:
 
 ::: demo guide-ec-instance
-<<< @demos/guide-ec-instance.vue{5-9,11,14,15,34 vue:line-numbers}
+<<< @demos/guide-ec-instance.vue{11,14,15,34 vue:line-numbers}
 :::
