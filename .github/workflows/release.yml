@@ -16,13 +16,24 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v3
-
       - name: Set node
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Update package.json
+        run: pnpm run release-packages
+
+      - name: Publish
+        run: pnpm publish -r --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - run: npx changelogithub
         env:
