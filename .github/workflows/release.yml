@@ -27,6 +27,9 @@ jobs:
       - name: Build
         run: pnpm run build
 
+      - name: Install dependencies
+        run: pnpm install -r
+
       - name: Update package.json
         run: pnpm run release-packages
 
