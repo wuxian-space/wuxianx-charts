@@ -1,8 +1,14 @@
-import merge from 'lodash.merge'
-import type { EChartsOption, LineSeriesOption } from 'echarts'
+import { merge } from 'lodash-es'
+import type { EChartsOption } from 'echarts'
+import { formatData } from './bar-simple'
 
 // #region parameters-types
-export type Data = Record<string, number> | Record<string, number>[]
+export type NameData = { name: string, data: NumberObject | NumberKeyValuePairArray }[]
+
+export type Data =
+  NumberObject |
+  NumberKeyValuePairArray |
+  NameData
 
 export interface Options {
   /**
@@ -26,27 +32,40 @@ const defaultOptions: Options = {
 export function lineSimple(data: Data, options: Options | null, ecOptions?: EcOptions) {
   const { itemColor } = merge({}, defaultOptions, options) as Required<Options>
 
-  const _data = Array.isArray(data) ? data : [data]
-  const _itemColor = Array.isArray(itemColor) ? itemColor : [itemColor]
+  const _data = formatData(data)
+  const _barColor = Array.isArray(itemColor) ? itemColor : [itemColor]
 
-  const series: LineSeriesOption[] = _data.map((item, index) => {
+  const series = _data.map((item, index) => {
+    const _color = _barColor[index % _barColor.length]
+
     return {
-      data: Object.values(item),
+      name: item.name,
+      data: (item.data || []).map(item => item[1]),
       type: 'line',
       itemStyle: {
-        color: _itemColor[index % _itemColor.length],
+        color: _color,
       },
     }
   })
 
-  return merge({}, {
+  const ec = {
     xAxis: {
       type: 'category',
-      data: Object.keys(_data?.[0] || {}),
+      data: (_data?.[0]?.data || []).map(item => item[0]),
     },
     yAxis: {
       type: 'value',
     },
     series,
-  }, ecOptions) as EChartsOption
+  } as EChartsOption
+
+  if (series.length > 1) {
+    ec.legend = {
+      show: true,
+    }
+  }
+
+  const rest = merge({}, ec, ecOptions) as EChartsOption
+
+  return rest
 }

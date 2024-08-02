@@ -131,13 +131,10 @@ importers:
       echarts:
         specifier: ^5
         version: 5.5.1
-      lodash.merge:
-        specifier: ^4.6.2
-        version: 4.6.2
+      lodash-es:
+        specifier: ^4.17.21
+        version: 4.17.21
     devDependencies:
-      '@types/lodash.merge':
-        specifier: ^4.6.9
-        version: 4.6.9
       vue:
         specifier: ^3.4.32
         version: 3.4.32(typescript@5.5.3)
@@ -1250,12 +1247,6 @@ packages:
 
   /@types/lodash-es@4.17.12:
     resolution: {integrity: sha512-0NgftHUcV4v34VhXm8QBSftKVXtbkBG3ViCjs6+eJ5a6y6Mi/jiFGPc1sC7QK+9BFhWrURE3EOggmWaSxL9OzQ==}
-    dependencies:
-      '@types/lodash': 4.17.7
-    dev: true
-
-  /@types/lodash.merge@4.6.9:
-    resolution: {integrity: sha512-23sHDPmzd59kUgWyKGiOMO2Qb9YtqRO/x4IhkgNUiPQ1+5MUVqi6bCZeq9nBJ17msjIMbEIO5u+XW4Kz6aGUhQ==}
     dependencies:
       '@types/lodash': 4.17.7
     dev: true
@@ -3492,10 +3483,10 @@ packages:
 
   /lodash-es@4.17.21:
     resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
-    dev: true
 
   /lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
+    dev: true
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}

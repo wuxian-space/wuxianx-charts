@@ -31,9 +31,9 @@ function createNewObj(obj) {
     v-ec="[
       'barSimple',
       [
-        createNewObj(data),
-        createNewObj(data),
-        createNewObj(data),
+        { name: 2021, data: createNewObj(data) },
+        { name: 2022, data: createNewObj(data) },
+        { name: 2023, data: createNewObj(data) },
       ],
       {
         itemColor: ['#DC3545', '#FFC107', '#0D6EFD'],

@@ -1,8 +1,14 @@
-import merge from 'lodash.merge'
-import type { BarSeriesOption, EChartsOption } from 'echarts'
+import { isArray, merge } from 'lodash-es'
+import type { EChartsOption } from 'echarts'
+import { isPlainObject, toPairs } from './_utils'
 
 // #region parameters-types
-export type Data = Record<string, number> | Record<string, number>[]
+export type NameData = { name: string, data: NumberObject | NumberKeyValuePairArray }[]
+
+export type Data =
+  NumberObject |
+  NumberKeyValuePairArray |
+  NameData
 
 export interface Options {
   /**
@@ -22,33 +28,66 @@ const defaultOptions: Options = {
   itemColor: 'auto',
 }
 // #endregion default-parameters
+export function formatData(data: NumberObject |
+  NumberKeyValuePairArray |
+  NameData,
+): { name: string, data: NumberKeyValuePairArray }[] {
+  if (isPlainObject(data as NumberObject))
+    return [{ name: '', data: toPairs<number>(data) }]
+
+  if (isArray(data)) {
+    if (data.every(isArray)) {
+      return [{ name: '', data: (data as NumberKeyValuePairArray) }]
+    }
+
+    return data.map((item: any) => {
+      return {
+        name: item.name,
+        data: toPairs(item.data),
+      }
+    })
+  }
+
+  return []
+}
 
 export function barSimple(data: Data, options?: Options | null, ecOptions?: EcOptions) {
   const { itemColor } = merge({}, defaultOptions, options) as Required<Options>
 
-  const _data = Array.isArray(data) ? data : [data]
+  const _data = formatData(data)
   const _barColor = Array.isArray(itemColor) ? itemColor : [itemColor]
 
-  const series: BarSeriesOption[] = _data.map((item, index) => {
+  const series = _data.map((item, index) => {
+    const _color = _barColor[index % _barColor.length]
+
     return {
-      data: Object.values(item),
+      name: item.name,
+      data: (item.data || []).map(item => item[1]),
       type: 'bar',
       itemStyle: {
-        color: _barColor[index % _barColor.length],
+        color: _color,
       },
     }
   })
 
-  const rest = merge({}, {
+  const ec = {
     xAxis: {
       type: 'category',
-      data: Object.keys(_data?.[0] || {}),
+      data: (_data?.[0]?.data || []).map(item => item[0]),
     },
     yAxis: {
       type: 'value',
     },
     series,
-  }, ecOptions) as EChartsOption
+  } as EChartsOption
+
+  if (series.length > 1) {
+    ec.legend = {
+      show: true,
+    }
+  }
+
+  const rest = merge({}, ec, ecOptions) as EChartsOption
 
   return rest
 }

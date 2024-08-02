@@ -5,6 +5,7 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "resolveJsonModule": true,
+    "typeRoots": ["./node_modules/@types", "./types"],
     "strict": true,
     "strictNullChecks": true,
     "noEmit": true,
@@ -12,4 +13,5 @@
     "skipDefaultLibCheck": true,
     "skipLibCheck": true
   }
+
 }

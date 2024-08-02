@@ -6,7 +6,8 @@
   "include": [
     "env.d.ts",
     "_demos/**/*",
-    ".vitepress/**/*"
+    ".vitepress/**/*",
+    "../types"
   ],
   "exclude": [
     "node_modules"
