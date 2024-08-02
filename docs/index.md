@@ -16,15 +16,15 @@ hero:
     - theme: alt
       text: Github
       link: https://github.com/wuxian-space/wuxianx-charts
-    - theme: alt
-      text: Wuxian Space
-      link: https://wuxian.space
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Rich Chart Examples
+    icon: 📈
+    details: Currently, there are 103 rich chart examples available for immediate use.
+  - title: Minimal Usage
+    icon: 🚀
+    details: With an extremely simple usage model, you can complete a chart with just one line of code.
+  - title: Tree Shaking Support
+    icon: 📦
+    details: Supports tree shaking to optimize builds and reduce bundle size.
 ---
