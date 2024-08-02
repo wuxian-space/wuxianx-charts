@@ -24,9 +24,9 @@ interface Charts {
 
 type ChartKey = keyof Charts
 
-export type WuxianChartsValue<T extends ChartKey> = [T, ...Parameters<Charts[T]>]
+export type WuxianxChartsValue<T extends ChartKey> = [T, ...Parameters<Charts[T]>]
 
-export function directive(ec: any, use: WuxianChartsPluginOptions['use']): Directive<HTMLElement, WuxianChartsValue<ChartKey>> {
+export function directive(ec: any, use: WuxianxChartsPluginOptions['use']): Directive<HTMLElement, WuxianxChartsValue<ChartKey>> {
   return {
     mounted(el, binding) {
       let chart = ec.getInstanceByDom(el)
@@ -39,11 +39,11 @@ export function directive(ec: any, use: WuxianChartsPluginOptions['use']): Direc
         watch(binding.value, setOption, { deep: true })
       }
 
-      function formatValue(): [ChartKey, ...WuxianChartsValue<any>[]] | null {
+      function formatValue(): [ChartKey, ...WuxianxChartsValue<any>[]] | null {
         const value = unref(binding.value)
 
         if (Array.isArray(binding.value)) {
-          const [key, ...args] = value as WuxianChartsValue<ChartKey>
+          const [key, ...args] = value as WuxianxChartsValue<ChartKey>
           return [key, args]
         }
 
@@ -72,7 +72,7 @@ export function directive(ec: any, use: WuxianChartsPluginOptions['use']): Direc
   }
 }
 
-export interface WuxianChartsPluginOptions {
+export interface WuxianxChartsPluginOptions {
   /**
    * @default 'ec'
    */
@@ -85,7 +85,7 @@ export interface WuxianChartsPluginOptions {
 
   use: Partial<Charts>
 }
-export function plugin(options: WuxianChartsPluginOptions) {
+export function plugin(options: WuxianxChartsPluginOptions) {
   const { name, use, ec } = options
 
   return {
