@@ -45,7 +45,7 @@ async function updatePkg(name) {
     },
     author: '岳晓亮 <https://github.com/yuexiaoliang>',
     license: 'MIT',
-    homepage: 'https://github.com/wuxian-space/wuxianx-charts#readme',
+    homepage: 'https://charts.wuxian.space',
     repository: {
       type: 'git',
       url: 'git+https://github.com/wuxian-space/wuxianx-charts.git',
