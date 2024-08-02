@@ -2,6 +2,7 @@ import type { Plugin } from 'vue'
 import { kebabCase } from 'lodash-es'
 import barSimple from './bar-simple.vue'
 import lineSimple from './line-simple.vue'
+import pieSimple from './pie-simple.vue'
 import guideWatch from './guide-watch.vue'
 import guideEcInstance from './guide-ec-instance.vue'
 import radarRainbow from './radar-rainbow.vue'
@@ -13,6 +14,7 @@ export const demos = {
 
   lineSimple,
   barSimple,
+  pieSimple,
   radarRainbow,
   ringThreeQuarterComment,
 }

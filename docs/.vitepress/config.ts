@@ -37,6 +37,13 @@ export default defineConfig({
         ],
       },
       {
+        text: 'Pie',
+        base: '/charts/',
+        items: [
+          { text: 'PieSimple', link: 'pie-simple.md' },
+        ],
+      },
+      {
         text: 'Radar',
         base: '/charts/',
         items: [

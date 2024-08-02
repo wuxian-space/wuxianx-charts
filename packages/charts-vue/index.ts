@@ -4,6 +4,7 @@ import { unref, watch } from 'vue'
 import {
   barSimple,
   lineSimple,
+  pieSimple,
   radarRainbow,
   ringThreeQuarterComment,
 } from '@wuxianx/charts'
@@ -11,6 +12,7 @@ import {
 export {
   lineSimple,
   barSimple,
+  pieSimple,
   radarRainbow,
   ringThreeQuarterComment,
 }
@@ -18,6 +20,7 @@ export {
 interface Charts {
   lineSimple: typeof lineSimple
   barSimple: typeof barSimple
+  pieSimple: typeof pieSimple
   radarRainbow: typeof radarRainbow
   ringThreeQuarterComment: typeof ringThreeQuarterComment
 }

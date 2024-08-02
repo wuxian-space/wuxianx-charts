@@ -29,7 +29,7 @@ const defaultOptions: Options = {
 }
 // #endregion default-parameters
 
-export function lineSimple(data: Data, options: Options | null, ecOptions?: EcOptions) {
+export function lineSimple(data: Data, options?: Options | null, ecOptions?: EcOptions) {
   const { itemColor } = merge({}, defaultOptions, options) as Required<Options>
 
   const _data = formatData(data)
