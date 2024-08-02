@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "packageManager": "pnpm@9.4.0",
   "scripts": {
     "prepare": "simple-git-hooks",
