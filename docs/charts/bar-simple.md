@@ -6,6 +6,10 @@
 
 :::
 
+## Default Parameters
+
+<<< @@/charts/bar-simple.ts#default-parameters
+
 ## Parameters
 
 <<< @@/charts/bar-simple.ts#parameters-types
