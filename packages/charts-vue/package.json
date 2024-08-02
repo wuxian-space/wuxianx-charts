@@ -1,7 +1,7 @@
 {
   "name": "@wuxianx/charts-vue",
   "type": "module",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1",
   "main": "index.ts",
   "peerDependencies": {
     "echarts": "^5",
