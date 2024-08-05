@@ -46,7 +46,13 @@ jobs:
           git add packages/charts/meta.json
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git commit -m 'feat(charts): update meta.json'
+
+          CHANGES=$(git diff-index --quiet HEAD || echo "true")
+          if [ "$CHANGES" = "true" ]; then
+            git commit -m 'feat(charts): update meta.json'
+          else
+            echo "No changes to commit"
+          fi
 
       - name: Push charts-meta
         uses: ad-m/github-push-action@master
