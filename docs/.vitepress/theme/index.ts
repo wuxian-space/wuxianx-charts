@@ -5,6 +5,7 @@ import { barSimple, lineSimple, pieSimple, radarRainbow, ringThreeQuarterComment
 import * as echarts from 'echarts'
 import demos from '../../_demos'
 import demo from './demo.vue'
+import chartTags from './chart-tags.vue'
 
 import 'tdesign-vue-next/es/style/index.css'
 
@@ -15,5 +16,6 @@ export default {
     app.use(demos)
     app.use(TDesign)
     app.component('demo', demo)
+    app.component('chart-tags', chartTags)
   },
 } satisfies Theme

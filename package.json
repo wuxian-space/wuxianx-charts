@@ -10,6 +10,7 @@
     "build": "node scripts/build.js",
     "release": "bumpp package.json packages/**/package.json",
     "release-packages": "node scripts/release-packages.js",
+    "charts-meta": "node scripts/update-charts-meta.js",
     "typecheck": "tsc --noEmit && pnpm -r typecheck",
     "lint": "eslint ."
   },

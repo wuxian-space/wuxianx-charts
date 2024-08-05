@@ -1,5 +1,7 @@
 # Radar Rainbow
 
+<chart-tags />
+
 ::: demo ring-three-quarter-comment
 
 <<< @demos/ring-three-quarter-comment.vue

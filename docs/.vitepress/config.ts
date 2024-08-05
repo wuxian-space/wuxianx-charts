@@ -1,4 +1,6 @@
 import _path from 'node:path'
+import { readFile, writeFile } from 'node:fs/promises'
+import type { Plugin } from 'vitepress'
 import { defineConfig } from 'vitepress'
 import container from 'markdown-it-container'
 import { snippet } from '@mdit/plugin-snippet'
@@ -7,6 +9,9 @@ import { type MarkdownItIncludeOptions, include } from '@mdit/plugin-include'
 export default defineConfig({
   title: 'wuxianx-charts',
   description: 'A wuxianx-charts website.',
+  head: [
+    ['script', { src: '/charts-meta.js' }],
+  ],
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
@@ -67,13 +72,13 @@ export default defineConfig({
     ],
   },
   vite: {
+    plugins: [buildChartsMeta()],
     server: {
       host: true,
     },
     build: {
       minify: false,
     },
-
     resolve: {
       alias: {
         '@': _path.resolve(__dirname, '..'),
@@ -134,4 +139,21 @@ function commonMdConfig() {
       return _path.join(root, ...aliasValue, path.replace(aliasKey, ''))
     },
   } as MarkdownItIncludeOptions
+}
+
+function buildChartsMeta() {
+  return {
+    name: 'build-charts-meta',
+    enforce: 'pre',
+    async configResolved(config) {
+      const metaPath = _path.join(config.root, '../packages/charts/meta.json')
+      const meta = JSON.parse(await readFile(metaPath, 'utf-8'))
+      await writeFile(_path.join(config.publicDir, 'charts-meta.js'), template(meta))
+    },
+  } as Plugin
+
+  function template(meta: string) {
+    const str = `window.__custom__ = { ...(window.__custom__ || {}), chartsMeta: ${JSON.stringify(meta)} }`
+    return str
+  }
 }

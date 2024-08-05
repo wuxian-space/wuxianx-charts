@@ -1,5 +1,7 @@
 # Line Simple
 
+<chart-tags />
+
 ::: demo line-simple
 
 <<< @demos/line-simple.vue

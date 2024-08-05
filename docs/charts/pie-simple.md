@@ -1,5 +1,7 @@
 # Bar Simple
 
+<chart-tags />
+
 ::: demo pie-simple
 
 <<< @demos/pie-simple.vue

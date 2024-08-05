@@ -1,5 +1,7 @@
 # Bar Simple
 
+<chart-tags />
+
 ::: demo bar-simple
 
 <<< @demos/bar-simple.vue

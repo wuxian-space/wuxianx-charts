@@ -1,5 +1,7 @@
 # Radar Rainbow
 
+<chart-tags />
+
 ::: demo radar-rainbow
 
 <<< @demos/radar-rainbow.vue
