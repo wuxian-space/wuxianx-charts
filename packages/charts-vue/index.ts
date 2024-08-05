@@ -29,6 +29,10 @@ type ChartKey = keyof Charts
 
 export type WuxianxChartsValue<T extends ChartKey> = [T, ...Parameters<Charts[T]>]
 
+export function defineChartOptions<T extends ChartKey>(...options: WuxianxChartsValue<T>) {
+  return options
+}
+
 export function directive(ec: any, use: WuxianxChartsPluginOptions['use']): Directive<HTMLElement, WuxianxChartsValue<ChartKey>> {
   return {
     mounted(el, binding) {
