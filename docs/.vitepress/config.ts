@@ -52,6 +52,7 @@ export default defineConfig({
         text: 'Radar',
         base: '/charts/',
         items: [
+          { text: 'RadarSimple', link: 'radar-simple.md' },
           { text: 'RadarRainbow', link: 'radar-rainbow.md' },
         ],
       },

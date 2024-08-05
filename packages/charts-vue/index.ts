@@ -6,6 +6,7 @@ import {
   lineSimple,
   pieSimple,
   radarRainbow,
+  radarSimple,
   ringThreeQuarterComment,
 } from '@wuxianx/charts'
 
@@ -13,6 +14,7 @@ export {
   lineSimple,
   barSimple,
   pieSimple,
+  radarSimple,
   radarRainbow,
   ringThreeQuarterComment,
 }
@@ -21,6 +23,7 @@ interface Charts {
   lineSimple: typeof lineSimple
   barSimple: typeof barSimple
   pieSimple: typeof pieSimple
+  radarSimple: typeof radarSimple
   radarRainbow: typeof radarRainbow
   ringThreeQuarterComment: typeof ringThreeQuarterComment
 }

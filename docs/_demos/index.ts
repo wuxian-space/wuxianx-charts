@@ -1,5 +1,6 @@
 import type { Plugin } from 'vue'
 import { kebabCase } from 'lodash-es'
+import radarSimple from './radar-simple.vue'
 import barSimple from './bar-simple.vue'
 import lineSimple from './line-simple.vue'
 import pieSimple from './pie-simple.vue'
@@ -17,6 +18,7 @@ export const demos = {
   lineSimple,
   barSimple,
   pieSimple,
+  radarSimple,
   radarRainbow,
   ringThreeQuarterComment,
 }
