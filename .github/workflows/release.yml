@@ -40,28 +40,17 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
+      - run: npx changelogithub
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
       - name: Update charts-meta
         run: |
           pnpm charts-meta
           git add packages/charts/meta.json
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
 
-          FILE_MODIFIED=$(git status --porcelain=2 | grep -q '^ M packages/charts/meta.json$'; echo $?)
-
-          if [ $FILE_MODIFIED -eq 0 ]; then
-            git commit -m 'feat(charts): update meta.json'
-          else
-            echo "No changes to commit"
-          fi
-
-      - name: Push charts-meta
-        uses: ad-m/github-push-action@master
-
+      - name: Commit & Push changes
+        uses: actions-js/push@master
         with:
+          message: 'feat(charts): update meta.json'
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-
-      - run: npx changelogithub
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
