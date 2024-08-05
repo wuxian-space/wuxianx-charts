@@ -5,12 +5,14 @@ import lineSimple from './line-simple.vue'
 import pieSimple from './pie-simple.vue'
 import guideWatch from './guide-watch.vue'
 import guideEcInstance from './guide-ec-instance.vue'
+import guideTypescript from './guide-typescript.vue'
 import radarRainbow from './radar-rainbow.vue'
 import ringThreeQuarterComment from './ring-three-quarter-comment.vue'
 
 export const demos = {
   guideWatch,
   guideEcInstance,
+  guideTypescript,
 
   lineSimple,
   barSimple,

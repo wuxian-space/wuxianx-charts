@@ -56,3 +56,11 @@ If you need to obtain the **echarts instance**, you can use the `echarts.getInst
 ::: demo guide-ec-instance
 <<< @demos/guide-ec-instance.vue{11,14,15,34 vue:line-numbers}
 :::
+
+## Typescript
+
+If you use `typescript`, you can use the type `WuxianxChartsValue<'barSimple'>` or the function `defineChartOptions('barSimple', ...)` for type restriction. Please refer to the following example:
+
+::: demo guide-typescript
+<<< @demos/guide-typescript.vue{14,16 vue:line-numbers}
+:::
