@@ -1,5 +1,6 @@
 import _path from 'node:path'
-import { readFile, writeFile } from 'node:fs/promises'
+import fs from 'node:fs'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import type { Plugin } from 'vitepress'
 import { defineConfig } from 'vitepress'
 import container from 'markdown-it-container'
@@ -148,6 +149,14 @@ function buildChartsMeta() {
     enforce: 'pre',
     async configResolved(config) {
       const metaPath = _path.join(config.root, '../packages/charts/meta.json')
+      if (!fs.existsSync(metaPath))
+        return
+
+      const publicDir = config.publicDir
+      if (!fs.existsSync(publicDir)) {
+        await mkdir(publicDir, { recursive: true })
+      }
+
       const meta = JSON.parse(await readFile(metaPath, 'utf-8'))
       await writeFile(_path.join(config.publicDir, 'charts-meta.js'), template(meta))
     },
