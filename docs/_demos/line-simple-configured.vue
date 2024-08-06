@@ -13,7 +13,7 @@ function createNewObj(obj) {
   const result = {}
 
   Object.keys(obj).forEach((key) => {
-    const value = Math.random() * 100
+    const value = Math.round(Math.random() * 100)
     result[key] = value
   })
 
@@ -34,6 +34,9 @@ function createNewObj(obj) {
         itemColor: ['#DC3545', '#FFC107', '#0D6EFD'],
       },
       {
+        tooltip: {
+          trigger: 'axis',
+        },
         series: [
           { smooth: true },
           { smooth: true },

@@ -19,6 +19,8 @@ const data = [
       {
         legend: {
           left: 'left',
+          top: 20,
+          left: 20,
           orient: 'vertical',
         },
       }]"

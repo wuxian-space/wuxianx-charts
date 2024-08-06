@@ -13,7 +13,7 @@ function createNewObj(obj) {
   const result = {}
 
   Object.keys(obj).forEach((key) => {
-    const value = Math.random() * 100
+    const value = Math.round(Math.random() * 100)
     result[key] = value
   })
 
@@ -34,12 +34,8 @@ function createNewObj(obj) {
         itemColor: ['#DC3545', '#FFC107', '#0D6EFD'],
       },
       {
-        title: {
-          text: 'Configured Bar',
-          textStyle: {
-            color: '#052C65',
-            fontSize: 20,
-          },
+        tooltip: {
+          trigger: 'axis',
         },
         grid: {
           top: '60px',

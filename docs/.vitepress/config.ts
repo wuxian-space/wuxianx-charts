@@ -7,9 +7,14 @@ import container from 'markdown-it-container'
 import { snippet } from '@mdit/plugin-snippet'
 import { type MarkdownItIncludeOptions, include } from '@mdit/plugin-include'
 
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { TDesignResolver } from 'unplugin-vue-components/resolvers'
+
 export default defineConfig({
   title: 'wuxianx-charts',
   description: 'A wuxianx-charts website.',
+  appearance: false,
   head: [
     ['script', { src: '/charts-meta.js' }],
   ],
@@ -47,6 +52,10 @@ export default defineConfig({
         base: '/charts/',
         items: [
           { text: 'PieSimple', link: 'pie-simple.md' },
+          {
+            text: 'RingThreeQuarterComment',
+            link: 'ring-three-quarter-comment.md',
+          },
         ],
       },
       {
@@ -57,24 +66,30 @@ export default defineConfig({
           { text: 'RadarRainbow', link: 'radar-rainbow.md' },
         ],
       },
-      {
-        text: 'Ring',
-        base: '/charts/',
-        items: [
-          {
-            text: 'RingThreeQuarterComment',
-            link: 'ring-three-quarter-comment.md',
-          },
-        ],
-      },
     ],
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/wuxian-space/wuxianx-charts' },
     ],
+
+    search: {
+      provider: 'local',
+    },
   },
   vite: {
-    plugins: [buildChartsMeta()],
+    plugins: [
+      buildChartsMeta(),
+      AutoImport({
+        resolvers: [TDesignResolver({
+          library: 'vue-next',
+        })],
+      }),
+      Components({
+        resolvers: [TDesignResolver({
+          library: 'vue-next',
+        })],
+      }),
+    ],
     server: {
       host: true,
     },
@@ -114,6 +129,27 @@ export default defineConfig({
           }
           else {
             return '</demo>\n'
+          }
+        },
+      })
+
+      md.use(container, 'chart-preview', {
+        validate(params: string) {
+          return params.trim().startsWith('chart-preview ')
+        },
+
+        render(tokens: any, idx: number) {
+          if (tokens[idx].nesting === 1) {
+            const [_, com, name] = tokens[idx].info.trim().split(/\s+/)
+
+            return `<chart-preview name="${name || com}">
+              <template #component>
+                <${com} style="width: 100%; height: 100%" />
+              </template>
+            `
+          }
+          else {
+            return '</chart-preview>\n'
           }
         },
       })

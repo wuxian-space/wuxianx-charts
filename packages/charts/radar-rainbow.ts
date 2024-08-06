@@ -82,7 +82,7 @@ export function radarRainbow(data: Data, colors?: Colors, ecOptions?: EcOptions)
   const legend = {
     show: true,
     icon: 'circle',
-    bottom: 45,
+    bottom: 20,
     itemWidth: 11,
     itemHeight: 11,
     itemGap: 24,
