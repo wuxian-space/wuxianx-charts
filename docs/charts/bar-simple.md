@@ -4,7 +4,17 @@
 
 ::: demo bar-simple
 
+The simplest example
+
 <<< @demos/bar-simple.vue
+
+:::
+
+::: demo bar-simple-configured
+
+This is a grouped bar chart with customized colors and Echarts configuration.
+
+<<< @demos/bar-simple-configured.vue
 
 :::
 
