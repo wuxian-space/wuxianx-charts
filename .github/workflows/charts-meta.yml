@@ -1,0 +1,41 @@
+
+name: chart-meta
+
+permissions:
+  contents: write
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  charts-meta:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set node
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+
+      - name: Install dependencies
+        run: pnpm install -r
+
+      - name: Update charts-meta
+        run: |
+          pnpm charts-meta
+          git add packages/charts/meta.json
+
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          message: 'feat(charts): update meta.json'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
