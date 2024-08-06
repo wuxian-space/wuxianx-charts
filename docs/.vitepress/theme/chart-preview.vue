@@ -18,34 +18,36 @@ const visible = ref(false)
 </script>
 
 <template>
-  <div class="chart-preview">
-    <header class="chart-preview-header">
-      <t-tag class="item" theme="primary" variant="light" size="small">
-        {{ name }}
-      </t-tag>
+  <ClientOnly>
+    <div class="chart-preview">
+      <header class="chart-preview-header">
+        <t-tag class="item" theme="primary" variant="light" size="small">
+          {{ name }}
+        </t-tag>
 
-      <t-tag v-if="version" class="item" theme="warning" variant="light" size="small">
-        {{ version }}
-      </t-tag>
+        <t-tag v-if="version" class="item" theme="warning" variant="light" size="small">
+          {{ version }}
+        </t-tag>
 
-      <t-button class="view item" shape="circle" theme="primary" variant="text" @click="visible = true">
-        <template #icon>
-          <CodeIcon />
-        </template>
-      </t-button>
-    </header>
+        <t-button class="view item" shape="circle" theme="primary" variant="text" @click="visible = true">
+          <template #icon>
+            <CodeIcon />
+          </template>
+        </t-button>
+      </header>
 
-    <div class="chart-preview-component">
-      <slot name="component" />
+      <div class="chart-preview-component">
+        <slot name="component" />
+      </div>
+
+      <t-dialog
+        v-model:visible="visible" :header="false" :footer="false" mode="modal" placement="center" width="70%"
+        destroy-on-close
+      >
+        <slot />
+      </t-dialog>
     </div>
-
-    <t-dialog
-      v-model:visible="visible" :header="false" :footer="false" mode="modal" placement="center" width="70%"
-      destroy-on-close
-    >
-      <slot />
-    </t-dialog>
-  </div>
+  </ClientOnly>
 </template>
 
 <style lang="scss" scoped>
