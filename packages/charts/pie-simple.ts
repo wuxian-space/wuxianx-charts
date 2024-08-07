@@ -94,7 +94,6 @@ export function pieSimple(data: Data, options?: Options | null, ecOptions?: EcOp
   }
 
   const ec = {
-    legend: { show: true },
     series,
   } as EChartsOption
 
