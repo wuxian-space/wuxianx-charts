@@ -45,6 +45,9 @@ function createNewObj(obj) {
         xAxis: {
           boundaryGap: false,
         },
+        legend: {
+          bottom: 15,
+        },
       },
     ]" style="width: 100%; height: 300px;"
   />

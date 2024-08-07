@@ -37,15 +37,10 @@ function createNewObj(obj) {
         tooltip: {
           trigger: 'axis',
         },
-        grid: {
-          top: '60px',
-          right: '10px',
-          bottom: '10px',
-          left: '10px',
-          containLabel: true,
+        legend: {
+          bottom: 15,
         },
       },
-    ]"
-    style="width: 100%; height: 300px;"
+    ]" style="width: 100%; height: 300px;"
   />
 </template>
