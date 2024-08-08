@@ -5,14 +5,14 @@
   "main": "index.ts",
   "peerDependencies": {
     "echarts": "^5",
-    "vue": "^3.4.32"
+    "vue": "^3"
   },
   "dependencies": {
     "@wuxianx/charts": "workspace:^"
   },
   "devDependencies": {
-    "echarts": "^5.5.1",
-    "vue": "^3.4.32"
+    "echarts": "^5",
+    "vue": "^3"
   },
   "buildOptions": {
     "name": "WuxianxChartsVue"
