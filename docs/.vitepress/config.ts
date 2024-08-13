@@ -58,6 +58,10 @@ export default defineConfig({
             text: 'RingThreeQuarterComment',
             link: 'ring-three-quarter-comment.md',
           },
+          {
+            text: 'PieGapDoughnut',
+            link: 'pie-gap-doughnut.md',
+          },
         ],
       },
       {

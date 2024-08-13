@@ -4,6 +4,7 @@ import { unref, watch } from 'vue'
 import {
   barSimple,
   lineSimple,
+  pieGapDoughnut,
   pieSimple,
   radarRainbow,
   radarSimple,
@@ -14,6 +15,7 @@ export {
   lineSimple,
   barSimple,
   pieSimple,
+  pieGapDoughnut,
   radarSimple,
   radarRainbow,
   ringThreeQuarterComment,
@@ -22,6 +24,7 @@ export {
 interface Charts {
   lineSimple: typeof lineSimple
   barSimple: typeof barSimple
+  pieGapDoughnut: typeof pieGapDoughnut
   pieSimple: typeof pieSimple
   radarSimple: typeof radarSimple
   radarRainbow: typeof radarRainbow
@@ -43,7 +46,25 @@ export function directive(ec: any, use: WuxianxChartsPluginOptions['use']): Dire
       if (!chart)
         chart = ec.init(el)
 
+      const value = formatValue()
+      if (!value)
+        return
+
+      const [key, args] = value
+
+      if (!use?.[key]) {
+        console.warn(`[@wuxianx/chart-vue]: "${key}" is not registered yet.`)
+        return
+      }
+
+      // @ts-expect-error yes
+      const _options = use[key](...args)
+
       setOption()
+
+      if (typeof _options.__initialized__ === 'function') {
+        _options.__initialized__(chart)
+      }
 
       if (binding.modifiers.watch) {
         watch(binding.value, setOption, { deep: true })
@@ -64,19 +85,7 @@ export function directive(ec: any, use: WuxianxChartsPluginOptions['use']): Dire
       }
 
       function setOption() {
-        const value = formatValue()
-        if (!value)
-          return
-
-        const [key, args] = value
-
-        if (!use?.[key]) {
-          console.warn(`[@wuxianx/chart-vue]: "${key}" is not registered yet.`)
-          return
-        }
-
-        // @ts-expect-error ignore
-        chart.setOption(use[key](...args))
+        chart.setOption(_options)
       }
     },
   }

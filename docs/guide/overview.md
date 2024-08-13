@@ -16,8 +16,8 @@ aside: false
 
 ## doughnut
 
-::: chart-preview pie-simple-configured pie-simple
-<<< @demos/pie-simple-configured.vue
+::: chart-preview pie-gap-doughnut
+<<< @demos/pie-gap-doughnut.vue
 :::
 
 ::: chart-preview ring-three-quarter-comment
@@ -40,8 +40,8 @@ aside: false
 <<< @demos/pie-simple.vue
 :::
 
-::: chart-preview pie-simple-configured pie-simple
-<<< @demos/pie-simple-configured.vue
+::: chart-preview pie-gap-doughnut
+<<< @demos/pie-gap-doughnut.vue
 :::
 
 ::: chart-preview ring-three-quarter-comment

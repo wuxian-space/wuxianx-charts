@@ -12,7 +12,7 @@ import lineSimple from './line-simple.vue'
 import lineSimpleConfigured from './line-simple-configured.vue'
 
 import pieSimple from './pie-simple.vue'
-import pieSimpleConfigured from './pie-simple-configured.vue'
+import pieGapDoughnut from './pie-gap-doughnut.vue'
 
 import radarSimple from './radar-simple.vue'
 import radarRainbow from './radar-rainbow.vue'
@@ -31,7 +31,7 @@ export const demos = {
   barSimpleConfigured,
 
   pieSimple,
-  pieSimpleConfigured,
+  pieGapDoughnut,
 
   radarSimple,
   radarRainbow,
