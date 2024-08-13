@@ -8,8 +8,10 @@ on:
   pull_request:
     branches:
       - main
-      
-permissions: 
+
+  workflow_dispatch:
+
+permissions:
   contents: write
 
 jobs:

@@ -1,15 +1,17 @@
 import _path from 'node:path'
 import fs from 'node:fs'
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises'
 import type { Plugin } from 'vitepress'
 import { defineConfig } from 'vitepress'
 import container from 'markdown-it-container'
 import { snippet } from '@mdit/plugin-snippet'
 import { type MarkdownItIncludeOptions, include } from '@mdit/plugin-include'
+import { minimatch } from 'minimatch'
 
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { TDesignResolver } from 'unplugin-vue-components/resolvers'
+import { toPairs } from 'lodash-es'
 
 export default defineConfig({
   title: 'wuxianx-charts',
@@ -78,6 +80,7 @@ export default defineConfig({
   },
   vite: {
     plugins: [
+      generateOverview(),
       buildChartsMeta(),
       AutoImport({
         resolvers: [TDesignResolver({
@@ -201,5 +204,102 @@ function buildChartsMeta() {
   function template(meta: string) {
     const str = `window.__custom__ = { ...(window.__custom__ || {}), chartsMeta: ${JSON.stringify(meta)} }`
     return str
+  }
+}
+
+function generateOverview() {
+  let root: string
+
+  return {
+    name: 'generate-overview',
+
+    async configResolved(config) {
+      root = config.root
+    },
+
+    async watchChange(id, { event }) {
+      if (!id.includes('docs/_demos'))
+        return
+
+      if (!['create', 'delete'].includes(event))
+        return
+
+      await gen()
+    },
+
+  } as Plugin
+
+  async function gen() {
+    const overviewConfig = (await import('../_demos/overview.config')).default
+
+    const _ignores = [
+      '*.vue',
+      ...(overviewConfig?.includes || []),
+    ]
+
+    const group: Record<string, string[]> = {}
+    function setGroup(key: string, item: string) {
+      if (!group[key]) {
+        group[key] = []
+      }
+
+      group[key].push(item)
+    }
+
+    const files = (await readdir(_path.join(root, '_demos')))
+      .filter((f) => {
+        return _ignores.every(includes => minimatch(f, includes))
+      })
+
+    files.forEach((f) => {
+      const types = overviewConfig.typesOf[f]
+
+      if (typeof types === 'string') {
+        setGroup(types, f)
+        return
+      }
+
+      if (Array.isArray(types)) {
+        types.forEach((type) => {
+          setGroup(type, f)
+        })
+
+        return
+      }
+
+      setGroup(f.split('-')[0], f)
+    })
+
+    let result = toPairs(group)
+      .sort((_a, _b) => {
+        const a = _a[0].toLocaleLowerCase()
+        const b = _b[0].toLocaleLowerCase()
+
+        return a.localeCompare(b)
+      })
+      .map((group) => {
+        const [type, items] = group
+        items.sort((a, b) => a.length - b.length)
+
+        return `## ${type}\n\n${items.map((item) => {
+          const group = overviewConfig.groupOf[item] || ''
+          const name = item.replace('.vue', '')
+          const s
+            = `::: chart-preview ${name} ${group}\n`
+            + `<<< @demos/${item}\n`
+            + `:::`
+
+          return s
+        }).join('\n\n')}`
+      }).join('\n\n')
+
+    result
+      = `---\n`
+      + `aside: false\n`
+      + `---\n\n`
+      + `# Overview\n\n`
+      + `${result}\n`
+
+    await writeFile(_path.join(root, 'guide/overview.md'), result)
   }
 }
