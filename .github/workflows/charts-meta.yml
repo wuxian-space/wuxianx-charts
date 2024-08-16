@@ -39,3 +39,6 @@ jobs:
         with:
           message: 'feat(charts): update meta.json'
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: gh-pages
+        uses: ./.github/workflows/gh-pages.yml
