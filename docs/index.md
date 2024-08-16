@@ -20,7 +20,7 @@ hero:
 features:
   - title: Rich Chart Examples
     icon: 📈
-    details: Currently, there are 103 rich chart examples available for immediate use.
+    details: Currently, there are a large number of rich chart examples available for immediate use.
   - title: Minimal Usage
     icon: 🚀
     details: With an extremely simple usage model, you can complete a chart with just one line of code.
