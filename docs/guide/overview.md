@@ -10,15 +10,15 @@ aside: false
 <<< @demos/bar-simple.vue
 :::
 
-::: chart-preview bar-horizontal
-<<< @demos/bar-horizontal.vue
-:::
-
 ::: chart-preview bar-simple-configured bar-simple
 <<< @demos/bar-simple-configured.vue
 :::
 
-::: chart-preview bar-horizontal-configured
+::: chart-preview bar-horizontal
+<<< @demos/bar-horizontal.vue
+:::
+
+::: chart-preview bar-horizontal-configured bar-horizontal
 <<< @demos/bar-horizontal-configured.vue
 :::
 

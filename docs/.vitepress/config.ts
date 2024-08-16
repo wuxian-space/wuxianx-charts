@@ -222,12 +222,12 @@ function generateOverview() {
       root = config.root
     },
 
-    async watchChange(id, { event }) {
+    async watchChange(id, { event: _event }) {
       if (!id.includes('docs/_demos'))
         return
 
-      if (!['create', 'delete'].includes(event))
-        return
+      // if (!['create', 'delete'].includes(_event))
+      //   return
 
       await gen()
     },
@@ -284,7 +284,20 @@ function generateOverview() {
       })
       .map((group) => {
         const [type, items] = group
-        items.sort((a, b) => a.length - b.length)
+        items.sort((a, b) => {
+          const aGroup = group(a).length
+          const bGroup = group(b).length
+
+          if (aGroup !== bGroup) {
+            return aGroup - bGroup
+          }
+
+          return b.localeCompare(a)
+
+          function group(item: string) {
+            return overviewConfig.groupOf[item] || item?.replace('.vue', '')
+          }
+        })
 
         return `## ${type}\n\n${items.map((item) => {
           const group = overviewConfig.groupOf[item] || ''

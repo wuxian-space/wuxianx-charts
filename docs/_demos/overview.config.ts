@@ -6,6 +6,7 @@ const typesOf: DefineObject<string | string[]> = {
 const groupOf: StringObject = {
   'line-simple-configured.vue': 'line-simple',
   'bar-simple-configured.vue': 'bar-simple',
+  'bar-horizontal-configured.vue': 'bar-horizontal',
 }
 
 export default {
