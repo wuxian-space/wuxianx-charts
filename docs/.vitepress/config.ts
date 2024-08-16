@@ -40,6 +40,7 @@ export default defineConfig({
         base: '/charts/',
         items: [
           { text: 'BarSimple', link: 'bar-simple.md' },
+          { text: 'BarHorizontal', link: 'bar-horizontal.md' },
         ],
       },
       {

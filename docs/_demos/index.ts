@@ -7,6 +7,8 @@ import guideTypescript from './guide-typescript.vue'
 
 import barSimple from './bar-simple.vue'
 import barSimpleConfigured from './bar-simple-configured.vue'
+import barHorizontal from './bar-horizontal.vue'
+import barHorizontalConfigured from './bar-horizontal-configured.vue'
 
 import lineSimple from './line-simple.vue'
 import lineSimpleConfigured from './line-simple-configured.vue'
@@ -29,6 +31,8 @@ export const demos = {
 
   barSimple,
   barSimpleConfigured,
+  barHorizontal,
+  barHorizontalConfigured,
 
   pieSimple,
   pieGapDoughnut,

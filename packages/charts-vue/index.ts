@@ -2,6 +2,7 @@ import type { Directive, Plugin } from 'vue'
 import { unref, watch } from 'vue'
 
 import {
+  barHorizontal,
   barSimple,
   lineSimple,
   pieGapDoughnut,
@@ -14,6 +15,7 @@ import {
 export {
   lineSimple,
   barSimple,
+  barHorizontal,
   pieSimple,
   pieGapDoughnut,
   radarSimple,
@@ -24,6 +26,7 @@ export {
 interface Charts {
   lineSimple: typeof lineSimple
   barSimple: typeof barSimple
+  barHorizontal: typeof barHorizontal
   pieGapDoughnut: typeof pieGapDoughnut
   pieSimple: typeof pieSimple
   radarSimple: typeof radarSimple
