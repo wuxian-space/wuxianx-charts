@@ -40,6 +40,8 @@ const data = [
       data,
       {
         itemColor: ['#DC3545', '#FFC107', '#0D6EFD'],
+        borderRadius: [1000, 1000, 0, 0],
+        barMaxWidth: 10,
       },
     ]"
     style="width: 100%; height: 300px; padding-top: 15px;"

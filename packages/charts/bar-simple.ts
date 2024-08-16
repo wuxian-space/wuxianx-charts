@@ -18,6 +18,21 @@ export interface Options {
    * @see https://echarts.apache.org/option.html#series-bar.itemStyle.color
    */
   itemColor?: string | string[]
+
+  /**
+   * @see https://echarts.apache.org/option.html#series-bar.barMaxWidth
+   */
+  barMaxWidth?: number | string
+
+  /**
+   * @see https://echarts.apache.org/option.html#series-bar.barMinWidth
+   */
+  barMinWidth?: number | string
+
+  /**
+   * @see https://echarts.apache.org/option.html#series-bar.itemStyle.borderRadius
+   */
+  borderRadius?: number | number[]
 }
 
 export type EcOptions = Partial<EChartsOption>
@@ -26,6 +41,7 @@ export type EcOptions = Partial<EChartsOption>
 // #region default-parameters
 const defaultOptions: Options = {
   itemColor: 'auto',
+  borderRadius: 0,
 }
 // #endregion default-parameters
 export function formatData(data: NumberObject |
@@ -52,7 +68,7 @@ export function formatData(data: NumberObject |
 }
 
 export function barSimple(data: Data, options?: Options | null, ecOptions?: EcOptions) {
-  const { itemColor } = merge({}, defaultOptions, options) as Required<Options>
+  const { itemColor, barMaxWidth, barMinWidth, borderRadius } = merge({}, defaultOptions, options) as Required<Options>
 
   const _data = formatData(data)
   const _barColor = Array.isArray(itemColor) ? itemColor : [itemColor]
@@ -66,7 +82,10 @@ export function barSimple(data: Data, options?: Options | null, ecOptions?: EcOp
       type: 'bar',
       itemStyle: {
         color: _color,
+        borderRadius,
       },
+      barMaxWidth,
+      barMinWidth,
     }
   })
 
