@@ -37,7 +37,7 @@ jobs:
       - name: Commit & Push changes
         uses: actions-js/push@master
         with:
-          message: 'feat(charts): update meta.json'
+          message: 'chore: update meta.json'
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
   gh-pages:
