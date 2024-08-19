@@ -19,6 +19,17 @@ export default defineConfig({
   appearance: false,
   head: [
     ['script', { src: `/charts-meta.js?${Math.floor(Math.random() * 100000)}` }],
+    [
+      'script',
+      {},
+      `var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?4cc5afa3a6dc39071d217e1443bffc50";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();`,
+    ],
   ],
   themeConfig: {
     nav: [
