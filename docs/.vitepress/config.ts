@@ -48,6 +48,7 @@ export default defineConfig({
         base: '/charts/',
         items: [
           { text: 'LineSimple', link: 'line-simple.md' },
+          { text: 'LineGradientTrend', link: 'line-gradient-trend.md' },
         ],
       },
       {

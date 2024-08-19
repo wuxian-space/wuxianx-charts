@@ -4,33 +4,47 @@ import { unref, watch } from 'vue'
 import {
   barHorizontal,
   barSimple,
+
+  lineGradientTrend,
   lineSimple,
+
   pieGapDoughnut,
   pieSimple,
   radarRainbow,
+
   radarSimple,
   ringThreeQuarterComment,
 } from '@wuxianx/charts'
 
 export {
   lineSimple,
+  lineGradientTrend,
+
   barSimple,
   barHorizontal,
+
   pieSimple,
   pieGapDoughnut,
+
   radarSimple,
   radarRainbow,
+
   ringThreeQuarterComment,
 }
 
 interface Charts {
   lineSimple: typeof lineSimple
+  lineGradientTrend: typeof lineGradientTrend
+
   barSimple: typeof barSimple
   barHorizontal: typeof barHorizontal
+
   pieGapDoughnut: typeof pieGapDoughnut
   pieSimple: typeof pieSimple
+
   radarSimple: typeof radarSimple
   radarRainbow: typeof radarRainbow
+
   ringThreeQuarterComment: typeof ringThreeQuarterComment
 }
 

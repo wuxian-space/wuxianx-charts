@@ -42,6 +42,14 @@ aside: false
 <<< @demos/line-simple-configured.vue
 :::
 
+::: chart-preview line-gradient-trend
+<<< @demos/line-gradient-trend.vue
+:::
+
+::: chart-preview line-gradient-trend-configured line-gradient-trend
+<<< @demos/line-gradient-trend-configured.vue
+:::
+
 ## pie
 
 ::: chart-preview pie-simple

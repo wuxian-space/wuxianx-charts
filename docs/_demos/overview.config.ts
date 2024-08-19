@@ -7,6 +7,7 @@ const groupOf: StringObject = {
   'line-simple-configured.vue': 'line-simple',
   'bar-simple-configured.vue': 'bar-simple',
   'bar-horizontal-configured.vue': 'bar-horizontal',
+  'line-gradient-trend-configured.vue': 'line-gradient-trend',
 }
 
 export default {

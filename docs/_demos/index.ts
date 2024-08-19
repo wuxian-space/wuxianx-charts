@@ -12,6 +12,8 @@ import barHorizontalConfigured from './bar-horizontal-configured.vue'
 
 import lineSimple from './line-simple.vue'
 import lineSimpleConfigured from './line-simple-configured.vue'
+import lineGradientTrend from './line-gradient-trend.vue'
+import lineGradientTrendConfigured from './line-gradient-trend-configured.vue'
 
 import pieSimple from './pie-simple.vue'
 import pieGapDoughnut from './pie-gap-doughnut.vue'
@@ -28,6 +30,8 @@ export const demos = {
 
   lineSimple,
   lineSimpleConfigured,
+  lineGradientTrend,
+  lineGradientTrendConfigured,
 
   barSimple,
   barSimpleConfigured,
