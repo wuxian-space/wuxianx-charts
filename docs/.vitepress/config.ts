@@ -18,7 +18,7 @@ export default defineConfig({
   description: 'A wuxianx-charts website.',
   appearance: false,
   head: [
-    ['script', { src: '/charts-meta.js' }],
+    ['script', { src: `/charts-meta.js?${Math.floor(Math.random() * 100000)}` }],
   ],
   themeConfig: {
     nav: [
