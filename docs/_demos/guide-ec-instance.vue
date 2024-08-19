@@ -31,7 +31,11 @@ function downloadBase64File(data) {
 
 <template>
   <div>
-    <div ref="el" v-ec="['radarRainbow', data]" style="width: 100%; height: 500px;" />
+    <div
+      ref="el"
+      v-ec.resize="['radarRainbow', data]"
+      style="width: 100%; height: 500px;"
+    />
 
     <t-button block style="margin-top: 10px;" @click="exportChart">
       Download

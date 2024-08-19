@@ -76,6 +76,12 @@ export function directive(ec: any, use: WuxianxChartsPluginOptions['use']): Dire
         }, { deep: true })
       }
 
+      if (binding.modifiers.resize) {
+        window.addEventListener('resize', () => {
+          chart.resize()
+        })
+      }
+
       function formatValue(): [ChartKey, ...WuxianxChartsValue<any>[]] | null {
         const value = unref(binding.value)
 

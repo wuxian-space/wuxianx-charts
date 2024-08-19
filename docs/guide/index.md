@@ -41,12 +41,16 @@ app.mount('#app')
 
 Use `v-ec.watch` and pass in a `ref` to achieve basic reactive chart updates.
 
-::: warning
-Please note that this solution does not support deep listening and can only assign values by replacing with new data. Please refer to the following example:
+::: demo guide-watch
+<<< @demos/guide-watch.vue{14,17-24,30 vue:line-numbers}
 :::
 
-::: demo guide-watch
-<<< @demos/guide-watch.vue{14,17-24 vue:line-numbers}
+## Chart Resize
+
+If you want to trigger `chart.resize` when `window.resize` occurs, you can use `v-ec.resize`.
+
+::: demo guide-resize
+<<< @demos/guide-resize.vue{13 vue:line-numbers}
 :::
 
 ## ECharts Instance
@@ -54,7 +58,7 @@ Please note that this solution does not support deep listening and can only assi
 If you need to obtain the **echarts instance**, you can use the `echarts.getInstanceByDom` method. Please refer to the following example:
 
 ::: demo guide-ec-instance
-<<< @demos/guide-ec-instance.vue{11,14,15,34 vue:line-numbers}
+<<< @demos/guide-ec-instance.vue{11,14,15,35,36 vue:line-numbers}
 :::
 
 ## Typescript

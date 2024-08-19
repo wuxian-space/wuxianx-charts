@@ -2,6 +2,7 @@ import type { Plugin } from 'vue'
 import { kebabCase } from 'lodash-es'
 
 import guideWatch from './guide-watch.vue'
+import guideResize from './guide-resize.vue'
 import guideEcInstance from './guide-ec-instance.vue'
 import guideTypescript from './guide-typescript.vue'
 
@@ -25,6 +26,7 @@ import ringThreeQuarterComment from './ring-three-quarter-comment.vue'
 
 export const demos = {
   guideWatch,
+  guideResize,
   guideEcInstance,
   guideTypescript,
 
