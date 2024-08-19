@@ -11,13 +11,15 @@ on:
 
   workflow_dispatch:
 
-  workflow_call:
-
 permissions:
   contents: write
 
 jobs:
+  charts-meta:
+    uses: ./.github/workflows/charts-meta.yml
+
   deploy:
+    needs: [charts-meta]
     runs-on: ubuntu-latest
 
     steps:
