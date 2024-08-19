@@ -113,10 +113,15 @@ export function lineGradientTrend(data: Data, options?: Options | null, ecOption
       },
     },
     grid: {
-      top: '50px',
       left: '35px',
       right: '35px',
-      bottom: '50px',
+    },
+
+    legend: {
+      show: series.length > 1,
+      textStyle: {
+        color: '#fff',
+      },
     },
 
     xAxis: {

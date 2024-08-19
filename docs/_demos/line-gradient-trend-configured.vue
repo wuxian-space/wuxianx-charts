@@ -33,6 +33,9 @@ const data = [
         lineColors: ['#C5C1C0', '#F7CE3E'],
         xAxisLabelColor: '#C5C1C0',
       },
+      {
+        legend: { top: '15px' },
+      },
     ]"
     style="width: 100%; height: 300px;"
   />
