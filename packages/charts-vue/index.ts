@@ -63,28 +63,17 @@ export function directive(ec: any, use: WuxianxChartsPluginOptions['use']): Dire
       if (!chart)
         chart = ec.init(el)
 
-      const value = formatValue()
-      if (!value)
-        return
+      const _options = options()
+      setOption(_options)
 
-      const [key, args] = value
-
-      if (!use?.[key]) {
-        console.warn(`[@wuxianx/chart-vue]: "${key}" is not registered yet.`)
-        return
-      }
-
-      // @ts-expect-error yes
-      const _options = use[key](...args)
-
-      setOption()
-
-      if (typeof _options.__initialized__ === 'function') {
+      if (typeof _options?.__initialized__ === 'function') {
         _options.__initialized__(chart)
       }
 
       if (binding.modifiers.watch) {
-        watch(binding.value, setOption, { deep: true })
+        watch(binding.value, () => {
+          setOption(options())
+        }, { deep: true })
       }
 
       function formatValue(): [ChartKey, ...WuxianxChartsValue<any>[]] | null {
@@ -101,8 +90,24 @@ export function directive(ec: any, use: WuxianxChartsPluginOptions['use']): Dire
         }
       }
 
-      function setOption() {
-        chart.setOption(_options)
+      function options() {
+        const value = formatValue()
+        if (!value)
+          return
+
+        const [key, args] = value
+
+        if (!use?.[key]) {
+          console.warn(`[@wuxianx/chart-vue]: "${key}" is not registered yet.`)
+          return
+        }
+
+        // @ts-expect-error yes
+        return use[key](...args)
+      }
+
+      function setOption(opts = {}) {
+        chart.setOption(opts)
       }
     },
   }
