@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "wuxianx charts"
   text: "We pursue an extreme level of simplicity"
-  tagline: "Maintained by Wuxian Space"
+  tagline: "One line of code to draw a chart"
   actions:
     - theme: brand
       text: Get Started

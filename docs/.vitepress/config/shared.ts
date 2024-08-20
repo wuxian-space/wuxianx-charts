@@ -12,11 +12,38 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { TDesignResolver } from 'unplugin-vue-components/resolvers'
 import { toPairs } from 'lodash-es'
+import { search as zhSearch } from './zh'
 
-export default defineConfig({
+export const shared = defineConfig({
   title: 'wuxianx-charts',
-  description: 'A wuxianx-charts website.',
+
+  rewrites: {
+    'en/:rest*': ':rest*',
+  },
+
   appearance: false,
+  cleanUrls: true,
+  metaChunk: true,
+  lastUpdated: true,
+
+  sitemap: {
+    hostname: 'https://charts.wuxian.space',
+  },
+
+  themeConfig: {
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/wuxian-space/wuxianx-charts' },
+    ],
+
+    search: {
+      provider: 'local',
+      options: {
+        locales: {
+          ...zhSearch,
+        },
+      },
+    },
+  },
   head: [
     ['script', { src: `/charts-meta.js?${Math.floor(Math.random() * 100000)}` }],
     [
@@ -31,72 +58,6 @@ export default defineConfig({
       })();`,
     ],
   ],
-  themeConfig: {
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Charts', activeMatch: '(guide|charts)', link: '/guide/overview' },
-    ],
-
-    sidebar: [
-      {
-        text: 'Guide',
-        base: '/guide/',
-        items: [
-          { text: 'Getting Started', link: 'index.md' },
-          { text: 'Overview', link: 'overview.md' },
-        ],
-      },
-      {
-        text: 'Bar',
-        base: '/charts/',
-        items: [
-          { text: 'BarSimple', link: 'bar-simple.md' },
-          { text: 'BarHorizontal', link: 'bar-horizontal.md' },
-          { text: 'BarStack', link: 'bar-stack.md' },
-          { text: 'BarHorizontalStack', link: 'bar-horizontal-stack.md' },
-        ],
-      },
-      {
-        text: 'Line',
-        base: '/charts/',
-        items: [
-          { text: 'LineSimple', link: 'line-simple.md' },
-          { text: 'LineGradientTrend', link: 'line-gradient-trend.md' },
-        ],
-      },
-      {
-        text: 'Pie',
-        base: '/charts/',
-        items: [
-          { text: 'PieSimple', link: 'pie-simple.md' },
-          {
-            text: 'RingThreeQuarterComment',
-            link: 'ring-three-quarter-comment.md',
-          },
-          {
-            text: 'PieGapDoughnut',
-            link: 'pie-gap-doughnut.md',
-          },
-        ],
-      },
-      {
-        text: 'Radar',
-        base: '/charts/',
-        items: [
-          { text: 'RadarSimple', link: 'radar-simple.md' },
-          { text: 'RadarRainbow', link: 'radar-rainbow.md' },
-        ],
-      },
-    ],
-
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/wuxian-space/wuxianx-charts' },
-    ],
-
-    search: {
-      provider: 'local',
-    },
-  },
   vite: {
     plugins: [
       generateOverview(),
@@ -183,7 +144,7 @@ function commonMdConfig() {
   return {
     currentPath: env => env.path,
     resolvePath: (path) => {
-      const root = _path.resolve(__dirname, '..', '..')
+      const root = _path.resolve(__dirname, '..', '..', '..')
 
       const alias = [
         ['@@', 'packages'],
@@ -249,7 +210,7 @@ function generateOverview() {
   } as Plugin
 
   async function gen() {
-    const overviewConfig = (await import('../_demos/overview.config')).default
+    const overviewConfig = (await import('../../_demos/overview.config')).default
 
     const _ignores = [
       '*.vue',
@@ -332,6 +293,7 @@ function generateOverview() {
       + `# Overview\n\n`
       + `${result}\n`
 
-    await writeFile(_path.join(root, 'guide/overview.md'), result)
+    await writeFile(_path.join(root, 'zh/guide/overview.md'), result)
+    await writeFile(_path.join(root, 'en/guide/overview.md'), result)
   }
 }
