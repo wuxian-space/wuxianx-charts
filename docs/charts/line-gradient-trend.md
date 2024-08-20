@@ -12,7 +12,7 @@ The simplest example
 
 ::: demo line-gradient-trend-configured
 
-The simplest example
+This is a configured example.
 
 <<< @demos/line-gradient-trend-configured.vue
 

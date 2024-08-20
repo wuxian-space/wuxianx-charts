@@ -10,6 +10,8 @@ import barSimple from './bar-simple.vue'
 import barSimpleConfigured from './bar-simple-configured.vue'
 import barHorizontal from './bar-horizontal.vue'
 import barHorizontalConfigured from './bar-horizontal-configured.vue'
+import barStack from './bar-stack.vue'
+import barStackConfigured from './bar-stack-configured.vue'
 
 import lineSimple from './line-simple.vue'
 import lineSimpleConfigured from './line-simple-configured.vue'
@@ -39,6 +41,8 @@ export const demos = {
   barSimpleConfigured,
   barHorizontal,
   barHorizontalConfigured,
+  barStack,
+  barStackConfigured,
 
   pieSimple,
   pieGapDoughnut,

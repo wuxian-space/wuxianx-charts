@@ -6,6 +6,14 @@ aside: false
 
 ## bar
 
+::: chart-preview bar-stack
+<<< @demos/bar-stack.vue
+:::
+
+::: chart-preview bar-stack-configured bar-stack
+<<< @demos/bar-stack-configured.vue
+:::
+
 ::: chart-preview bar-simple
 <<< @demos/bar-simple.vue
 :::
