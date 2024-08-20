@@ -1,6 +1,6 @@
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
-import { barHorizontal, barSimple, barStack, lineGradientTrend, lineSimple, pieGapDoughnut, pieSimple, radarRainbow, radarSimple, ringThreeQuarterComment, plugin as vEc } from '@wuxianx/charts-vue'
+import { barHorizontal, barHorizontalStack, barSimple, barStack, lineGradientTrend, lineSimple, pieGapDoughnut, pieSimple, radarRainbow, radarSimple, ringThreeQuarterComment, plugin as vEc } from '@wuxianx/charts-vue'
 import * as echarts from 'echarts'
 import demos from '../../_demos'
 import demo from './demo.vue'
@@ -12,7 +12,7 @@ import 'tdesign-vue-next/es/style/index.css'
 export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
-    app.use(vEc({ use: { lineSimple, lineGradientTrend, pieSimple, pieGapDoughnut, radarSimple, barSimple, barStack, barHorizontal, radarRainbow, ringThreeQuarterComment }, ec: echarts }))
+    app.use(vEc({ use: { lineSimple, lineGradientTrend, pieSimple, pieGapDoughnut, radarSimple, barSimple, barStack, barHorizontalStack, barHorizontal, radarRainbow, ringThreeQuarterComment }, ec: echarts }))
     app.use(demos)
     app.component('demo', demo)
     app.component('chart-preview', ChartPreview)

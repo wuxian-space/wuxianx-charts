@@ -3,6 +3,7 @@ import { unref, watch } from 'vue'
 
 import {
   barHorizontal,
+  barHorizontalStack,
   barSimple,
   barStack,
 
@@ -22,8 +23,9 @@ export {
   lineGradientTrend,
 
   barSimple,
-  barStack,
   barHorizontal,
+  barStack,
+  barHorizontalStack,
 
   pieSimple,
   pieGapDoughnut,
@@ -41,6 +43,7 @@ interface Charts {
   barSimple: typeof barSimple
   barStack: typeof barStack
   barHorizontal: typeof barHorizontal
+  barHorizontalStack: typeof barHorizontalStack
 
   pieGapDoughnut: typeof pieGapDoughnut
   pieSimple: typeof pieSimple

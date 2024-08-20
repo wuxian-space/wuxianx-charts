@@ -4,6 +4,7 @@ import { lineGradientTrend } from './line-gradient-trend'
 import { barSimple } from './bar-simple'
 import { barHorizontal } from './bar-horizontal'
 import { barStack } from './bar-stack'
+import { barHorizontalStack } from './bar-horizontal-stack'
 
 import { pieSimple } from './pie-simple'
 import { pieGapDoughnut } from './pie-gap-doughnut'
@@ -19,6 +20,7 @@ export {
   barSimple,
   barHorizontal,
   barStack,
+  barHorizontalStack,
 
   pieSimple,
   pieGapDoughnut,

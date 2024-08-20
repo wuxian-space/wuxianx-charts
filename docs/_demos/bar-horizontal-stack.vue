@@ -35,15 +35,7 @@ const data = [
 
 <template>
   <div
-    v-ec="[
-      'barStack',
-      data,
-      {
-        itemColor: ['#DC3545', '#FFC107', '#0D6EFD'],
-        borderRadius: 1000, // or [topLeft, topRight, bottomRight, bottomLeft]
-        barMaxWidth: 25,
-      },
-    ]"
+    v-ec="['barHorizontalStack', data]"
     style="width: 100%; height: 300px; padding-top: 15px;"
   />
 </template>

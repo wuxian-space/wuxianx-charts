@@ -36,12 +36,12 @@ const data = [
 <template>
   <div
     v-ec="[
-      'barStack',
+      'barHorizontalStack',
       data,
       {
         itemColor: ['#DC3545', '#FFC107', '#0D6EFD'],
         borderRadius: 1000, // or [topLeft, topRight, bottomRight, bottomLeft]
-        barMaxWidth: 25,
+        barMaxWidth: 18,
       },
     ]"
     style="width: 100%; height: 300px; padding-top: 15px;"

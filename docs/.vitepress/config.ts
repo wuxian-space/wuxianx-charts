@@ -53,6 +53,7 @@ export default defineConfig({
           { text: 'BarSimple', link: 'bar-simple.md' },
           { text: 'BarHorizontal', link: 'bar-horizontal.md' },
           { text: 'BarStack', link: 'bar-stack.md' },
+          { text: 'BarHorizontalStack', link: 'bar-horizontal-stack.md' },
         ],
       },
       {

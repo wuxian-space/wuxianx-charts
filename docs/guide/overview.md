@@ -30,6 +30,14 @@ aside: false
 <<< @demos/bar-horizontal-configured.vue
 :::
 
+::: chart-preview bar-horizontal-stack
+<<< @demos/bar-horizontal-stack.vue
+:::
+
+::: chart-preview bar-horizontal-stack-configured bar-horizontal-stack
+<<< @demos/bar-horizontal-stack-configured.vue
+:::
+
 ## doughnut
 
 ::: chart-preview pie-gap-doughnut
