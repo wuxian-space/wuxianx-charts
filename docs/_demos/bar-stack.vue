@@ -34,5 +34,8 @@ const data = [
 </script>
 
 <template>
-  <div v-ec="['barStack', data]" style="width: 100%; height: 300px;" />
+  <div
+    v-ec="['barStack', data]"
+    style="width: 100%; height: 300px; padding-top: 15px;"
+  />
 </template>

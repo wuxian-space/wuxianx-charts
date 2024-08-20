@@ -44,6 +44,6 @@ const data = [
         barMaxWidth: 25,
       },
     ]"
-    style="width: 100%; height: 300px;"
+    style="width: 100%; height: 300px; padding-top: 15px;"
   />
 </template>
