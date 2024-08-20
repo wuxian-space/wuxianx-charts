@@ -2,6 +2,8 @@ import type { Directive, Plugin } from 'vue'
 import { unref, watch } from 'vue'
 
 import {
+  all,
+
   barHorizontal,
   barHorizontalStack,
   barSimple,
@@ -19,6 +21,8 @@ import {
 } from '@wuxianx/charts'
 
 export {
+  all,
+
   lineSimple,
   lineGradientTrend,
 

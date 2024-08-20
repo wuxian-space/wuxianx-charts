@@ -30,3 +30,21 @@ export {
 
   ringThreeQuarterComment,
 }
+
+export const all = {
+  lineSimple,
+  lineGradientTrend,
+
+  barSimple,
+  barHorizontal,
+  barStack,
+  barHorizontalStack,
+
+  pieSimple,
+  pieGapDoughnut,
+
+  radarSimple,
+  radarRainbow,
+
+  ringThreeQuarterComment,
+}
