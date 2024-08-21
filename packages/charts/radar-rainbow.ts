@@ -1,26 +1,21 @@
 import { merge } from 'lodash-es'
 import type { EChartsOption } from 'echarts'
 
-// #region parameters-types
+// #region Type-Data
 export type Data = [string | number, Record<string, number>][]
+// #endregion Type-Data
 
-/**
- * @default defaultColors
- */
+// #region Type-Colors
 export type Colors = string[] | null
+// #endregion Type-Colors
 
-/**
- * echarts options
- *
- * @description Customize the configuration options for `echarts`,
- * merging them using `lodash.merge({}, options, ecOptions)`.
- */
+// #region Type-EcOptions
 export type EcOptions = Partial<EChartsOption> | null
-// #endregion parameters-types
+// #endregion Type-EcOptions
 
-// #region default-parameters
+// #region Default-Colors
 const defaultColors = ['#FFC107', '#DC3545', '#0D6EFD', '#6C757D', '#198754', '#0DCAF0']
-// #endregion default-parameters
+// #endregion Default-Colors
 
 export function radarRainbow(data: Data, colors?: Colors, ecOptions?: EcOptions) {
   const _colors = colors || defaultColors

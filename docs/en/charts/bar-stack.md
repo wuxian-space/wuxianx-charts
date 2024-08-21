@@ -1,27 +1,47 @@
-# Bar Simple
+# Stacked Bar Chart
 
 <chart-tags />
 
-::: demo bar-stack
+## Examples
 
-The simplest example
+### Basic Example
+
+::: demo bar-stack
 
 <<< @demos/bar-stack.vue
 
 :::
 
-::: demo bar-stack-configured
+### Configured Example
 
-This is a configured example.
+::: demo bar-stack-configured
 
 <<< @demos/bar-stack-configured.vue
 
 :::
 
-## Default Parameters
+## Parameter Descriptions
 
-<<< @@/charts/bar-stack.ts#default-parameters
+| Index | Type                    | Required | Default Value              | Description                      |
+| :---: | ----------------------- | :------: | -------------------------- | -------------------------------- |
+|   0   | barStack                |   Yes    | -                          | -                                |
+|   1   | [Data](#data)           |   Yes    | -                          | Data                             |
+|   2   | [Options](#options-1)   |    No    | [defaultOptions](#options) | Configuration parameters         |
+|   3   | [EcOptions](#ecoptions) |    No    | -                          | ECharts configuration parameters |
 
-## Parameters
+## Default Parameter Values
 
-<<< @@/charts/bar-stack.ts#parameters-types
+### options
+
+<<< @@/charts/bar-stack.ts#Default-Options
+
+## Parameter Types
+
+### Data
+<<< @@/charts/bar-stack.ts#Type-Data
+
+### Options
+<<< @@/charts/bar-stack.ts#Type-Options
+
+### EcOptions
+<<< @@/charts/bar-stack.ts#Type-EcOptions

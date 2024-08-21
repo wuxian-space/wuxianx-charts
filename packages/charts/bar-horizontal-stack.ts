@@ -3,13 +3,15 @@ import type { BarSeriesOption, EChartsOption, EChartsType } from 'echarts'
 import { formatData } from './bar-simple'
 import { isPlainObject } from './_utils'
 
-// #region parameters-types
+// #region Type-Data
 export type NameData = { name: string, data: NumberObject | NumberKeyValuePairArray }[]
 
 export type Data =
   NumberKeyValuePairArray |
   NameData
+// #endregion Type-Data
 
+// #region Type-Options
 export interface Options {
   /**
    * The color of the bar. If `data` passes in an array,
@@ -36,17 +38,19 @@ export interface Options {
 
   showLabel?: boolean
 }
+// #endregion Type-Options
 
+// #region Type-EcOptions
 export type EcOptions = Partial<EChartsOption>
-// #endregion parameters-types
+// #endregion Type-EcOptions
 
-// #region default-parameters
+// #region Default-Options
 const defaultOptions: Options = {
   itemColor: 'auto',
   borderRadius: 0,
   showLabel: true,
 }
-// #endregion default-parameters
+// #endregion Default-Options
 
 export function barHorizontalStack(data: Data, options?: Options | null, ecOptions?: EcOptions) {
   const { itemColor, barMaxWidth, barMinWidth, borderRadius, showLabel } = merge({}, defaultOptions, options) as Required<Options>

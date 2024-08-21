@@ -1,27 +1,42 @@
-# Line Simple
+# Simple Line Chart
 
 <chart-tags />
 
+## Examples
+
+### Basic Example
+
 ::: demo line-simple
-
-The simplest example
-
 <<< @demos/line-simple.vue
-
 :::
+
+### Configured Example
 
 ::: demo line-simple-configured
-
-This is a grouped line chart with customized colors and Echarts configuration.
-
 <<< @demos/line-simple-configured.vue
-
 :::
 
-## Default Parameters
+## Parameter Descriptions
 
-<<< @@/charts/line-simple.ts#default-parameters
+| Index | Type                    | Required | Default Value              | Description                      |
+| :---: | ----------------------- | :------: | -------------------------- | -------------------------------- |
+|   0   | lineSimple              |   Yes    | -                          | -                                |
+|   1   | [Data](#data)           |   Yes    | -                          | Data                             |
+|   2   | [Options](#options-1)   |    No    | [defaultOptions](#options) | Configuration Parameters         |
+|   3   | [EcOptions](#ecoptions) |    No    | -                          | ECharts Configuration Parameters |
 
-## Parameters
+## Default Parameter Values
 
-<<< @@/charts/line-simple.ts#parameters-types
+### options
+<<< @@/charts/line-simple.ts#Default-Options
+
+## Parameter Types
+
+### Data
+<<< @@/charts/line-simple.ts#Type-Data
+
+### Options
+<<< @@/charts/line-simple.ts#Type-Options
+
+### EcOptions
+<<< @@/charts/line-simple.ts#Type-EcOptions

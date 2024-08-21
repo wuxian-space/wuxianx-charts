@@ -1,11 +1,13 @@
 import { merge } from 'lodash-es'
 import type { EChartsOption } from 'echarts'
 
-// #region parameters-types
+// #region Type-Data
 export type Data = [string | number, Record<string, number>][]
+// #endregion Type-Data
 
+// #region Type-EcOptions
 export type EcOptions = Partial<EChartsOption>
-// #endregion parameters-types
+// #endregion Type-EcOptions
 
 export function radarSimple(data: Data, ecOptions?: EcOptions) {
   const legendData = []

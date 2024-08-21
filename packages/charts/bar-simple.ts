@@ -2,14 +2,16 @@ import { isArray, merge } from 'lodash-es'
 import type { EChartsOption } from 'echarts'
 import { isPlainObject, toPairs } from './_utils'
 
-// #region parameters-types
+// #region Type-Data
 export type NameData = { name: string, data: NumberObject | NumberKeyValuePairArray }[]
 
 export type Data =
   NumberObject |
   NumberKeyValuePairArray |
   NameData
+// #endregion Type-Data
 
+// #region Type-Options
 export interface Options {
   /**
    * The color of the bar. If `data` passes in an array,
@@ -34,16 +36,18 @@ export interface Options {
    */
   borderRadius?: number | number[]
 }
+// #endregion Type-Options
 
+// #region Type-EcOptions
 export type EcOptions = Partial<EChartsOption>
-// #endregion parameters-types
+// #endregion Type-EcOptions
 
-// #region default-parameters
+// #region Default-Options
 const defaultOptions: Options = {
   itemColor: 'auto',
   borderRadius: 0,
 }
-// #endregion default-parameters
+// #endregion Default-Options
 export function formatData(data: NumberObject |
   NumberKeyValuePairArray |
   NameData,

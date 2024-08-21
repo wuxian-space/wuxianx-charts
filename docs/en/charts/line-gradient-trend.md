@@ -1,27 +1,42 @@
-# Gradient Trend Line
+# Area Chart (Trend Chart)
 
 <chart-tags />
 
+## Examples
+
+### Basic Example
+
 ::: demo line-gradient-trend
-
-The simplest example
-
 <<< @demos/line-gradient-trend.vue
-
 :::
+
+### Configured Example
 
 ::: demo line-gradient-trend-configured
-
-This is a configured example.
-
 <<< @demos/line-gradient-trend-configured.vue
-
 :::
 
-## Default Parameters
+## Parameter Descriptions
 
-<<< @@/charts/line-gradient-trend.ts#default-parameters
+| Index | Type                    | Required | Default Value              | Description                      |
+| :---: | ----------------------- | :------: | -------------------------- | -------------------------------- |
+|   0   | lineGradientTrend       |   Yes    | -                          | -                                |
+|   1   | [Data](#data)           |   Yes    | -                          | Data                             |
+|   2   | [Options](#options-1)   |    No    | [defaultOptions](#options) | Configuration Parameters         |
+|   3   | [EcOptions](#ecoptions) |    No    | -                          | ECharts Configuration Parameters |
 
-## Parameters
+## Default Parameter Values
 
-<<< @@/charts/line-gradient-trend.ts#parameters-types
+### options
+<<< @@/charts/line-gradient-trend.ts#Default-Options
+
+## Parameter Types
+
+### Data
+<<< @@/charts/line-gradient-trend.ts#Type-Data
+
+### Options
+<<< @@/charts/line-gradient-trend.ts#Type-Options
+
+### EcOptions
+<<< @@/charts/line-gradient-trend.ts#Type-EcOptions

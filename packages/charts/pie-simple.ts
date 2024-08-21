@@ -2,11 +2,13 @@ import { merge } from 'lodash-es'
 import type { EChartsOption, PieSeriesOption } from 'echarts'
 import { toPairs } from './_utils'
 
-// #region parameters-types
+// #region Type-Data
 export type Data = (NumberObject | NumberKeyValuePairArray)[]
+// #endregion Type-Data
 
+// #region Type-EcOptions
 export type EcOptions = Partial<EChartsOption>
-// #endregion parameters-types
+// #endregion Type-EcOptions
 
 export function pieSimple(data: Data, ecOptions?: EcOptions) {
   const _data = toPairs(data).reduce((acc, [name, value]) => {

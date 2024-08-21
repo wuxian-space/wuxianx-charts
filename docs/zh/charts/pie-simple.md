@@ -1,15 +1,27 @@
-# Bar Simple
+# 基础饼图
 
 <chart-tags />
 
+## 示例
+
+### 基础示例
+
 ::: demo pie-simple
-
-一个简单的基础示例。
-
 <<< @demos/pie-simple.vue
-
 :::
+
+## 参数说明
+
+| 索引  | 类型                    | 必填  | 默认值 | 说明             |
+| :---: | ----------------------- | :---: | ------ | ---------------- |
+|   0   | pieSimple               |  是   | -      | -                |
+|   1   | [Data](#data)           |  是   | -      | 数据             |
+|   2   | [EcOptions](#ecoptions) |  否   | -      | ECharts 配置参数 |
 
 ## 参数类型
 
-<<< @@/charts/pie-simple.ts#parameters-types
+### Data
+<<< @@/charts/pie-simple.ts#Type-Data
+
+### EcOptions
+<<< @@/charts/pie-simple.ts#Type-EcOptions

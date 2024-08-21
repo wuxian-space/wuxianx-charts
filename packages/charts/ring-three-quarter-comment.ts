@@ -1,12 +1,11 @@
 import { merge } from 'lodash-es'
 import type { EChartsOption, PieSeriesOption } from 'echarts'
 
-// #region parameters-types
+// #region Type-Data
 export type Data = { name: string, value: number, unit: string }[]
+// #endregion Type-Data
 
-/**
- * @default defaultOptions
- */
+// #region Type-Options
 export interface Options extends Record<string, unknown> {
   colors?: string[]
   ringBg?: string
@@ -19,17 +18,13 @@ export interface Options extends Record<string, unknown> {
   lineWidth?: number
   lineColor?: string
 }
+// #endregion Type-Options
 
-/**
- * echarts options
- *
- * @description Customize the configuration options for `echarts`,
- * merging them using `lodash.merge({}, options, ecOptions)`.
- */
+// #region Type-EcOptions
 export type EcOptions = Partial<EChartsOption> | null
-// #endregion parameters-types
+// #endregion Type-EcOptions
 
-// #region default-parameters
+// #region Default-Options
 const defaultOptions: Options = {
   colors: ['#FF8700', '#ffc300', '#00e473', '#009DFF', '#198754', '#0DCAF0'],
   textColors: {
@@ -42,7 +37,7 @@ const defaultOptions: Options = {
   lineWidth: 130,
   lineColor: 'rgba(0, 0, 0, 0.3)',
 }
-// #endregion default-parameters
+// #endregion Default-Options
 
 export function ringThreeQuarterComment(data: Data, options?: Options, ecOptions?: EcOptions) {
   const { colors, lineColor, lineWidth, ringBg, textColors } = merge({}, defaultOptions, options) as Required<Options>

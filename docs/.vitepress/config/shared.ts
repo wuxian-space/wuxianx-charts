@@ -35,6 +35,10 @@ export const shared = defineConfig({
       { icon: 'github', link: 'https://github.com/wuxian-space/wuxianx-charts' },
     ],
 
+    outline: {
+      level: [2, 4],
+    },
+
     search: {
       provider: 'local',
       options: {
@@ -275,10 +279,12 @@ function generateOverview() {
         })
 
         return `## ${type}\n\n${items.map((item) => {
-          const group = overviewConfig.groupOf[item] || ''
+          let group = overviewConfig.groupOf[item]
+          group = group ? ` ${group}` : ''
+
           const name = item.replace('.vue', '')
           const s
-            = `::: chart-preview ${name} ${group}\n`
+            = `::: chart-preview ${name}${group}\n`
             + `<<< @demos/${item}\n`
             + `:::`
 

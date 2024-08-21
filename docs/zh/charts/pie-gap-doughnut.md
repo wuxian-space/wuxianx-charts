@@ -1,19 +1,36 @@
-# Bar Simple
+# 间隙环形图
 
 <chart-tags />
 
+## 示例
+
+### 基础示例
+
 ::: demo pie-gap-doughnut
-
-一个简单的基础示例。
-
 <<< @demos/pie-gap-doughnut.vue
-
 :::
 
-## 默认参数
+## 参数说明
 
-<<< @@/charts/pie-gap-doughnut.ts#default-parameters
+| 索引  | 类型                    | 必填  | 默认值                     | 说明             |
+| :---: | ----------------------- | :---: | -------------------------- | ---------------- |
+|   0   | pieGapDoughnut          |  是   | -                          | -                |
+|   1   | [Data](#data)           |  是   | -                          | 数据             |
+|   2   | [Options](#options-1)   |  否   | [defaultOptions](#options) | 配置参数         |
+|   3   | [EcOptions](#ecoptions) |  否   | -                          | ECharts 配置参数 |
+
+## 参数默认值
+
+### options
+<<< @@/charts/pie-gap-doughnut.ts#Default-Options
 
 ## 参数类型
 
-<<< @@/charts/pie-gap-doughnut.ts#parameters-types
+### Data
+<<< @@/charts/pie-gap-doughnut.ts#Type-Data
+
+### Options
+<<< @@/charts/pie-gap-doughnut.ts#Type-Options
+
+### EcOptions
+<<< @@/charts/pie-gap-doughnut.ts#Type-EcOptions

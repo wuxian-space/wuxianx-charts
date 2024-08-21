@@ -4,30 +4,34 @@ import { graphic } from 'echarts'
 import Color from 'color'
 import { formatData } from './bar-simple'
 
-// #region parameters-types
+// #region Type-Data
 export type NameData = { name: string, data: NumberObject | NumberKeyValuePairArray }[]
 
 export type Data =
   NumberObject |
   NumberKeyValuePairArray |
   NameData
+// #endregion Type-Data
 
+// #region Type-Options
 export interface Options {
   lineColors?: string[]
   backgroundColor?: string
   xAxisLabelColor?: string
 }
+// #endregion Type-Options
 
+// #region Type-EcOptions
 export type EcOptions = Partial<EChartsOption>
-// #endregion parameters-types
+// #endregion Type-EcOptions
 
-// #region default-parameters
+// #region Default-Options
 const defaultOptions: Options = {
   lineColors: ['#00b3f4', '#00ca95'],
   backgroundColor: '#080b30',
   xAxisLabelColor: '#fff',
 }
-// #endregion default-parameters
+// #endregion Default-Options
 
 export function lineGradientTrend(data: Data, options?: Options | null, ecOptions?: EcOptions) {
   const { lineColors: itemColor, backgroundColor, xAxisLabelColor } = merge({}, defaultOptions, options) as Required<Options>

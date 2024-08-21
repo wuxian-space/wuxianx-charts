@@ -1,27 +1,41 @@
-# Bar Simple
+# Simple Bar Chart
 
 <chart-tags />
 
+## Examples
+
+### Basic Example
+
 ::: demo bar-simple
-
-The simplest example
-
 <<< @demos/bar-simple.vue
-
 :::
 
+### Configured Example
 ::: demo bar-simple-configured
-
-This is a grouped bar chart with customized colors and Echarts configuration.
-
 <<< @demos/bar-simple-configured.vue
-
 :::
 
-## Default Parameters
+## Parameter Descriptions
 
-<<< @@/charts/bar-simple.ts#default-parameters
+| Index | Type                    | Required | Default Value              | Description                      |
+| :---: | ----------------------- | :------: | -------------------------- | -------------------------------- |
+|   0   | barSimple               |   Yes    | -                          | -                                |
+|   1   | [Data](#data)           |   Yes    | -                          | Data                             |
+|   2   | [Options](#options-1)   |    No    | [defaultOptions](#options) | Configuration Parameters         |
+|   3   | [EcOptions](#ecoptions) |    No    | -                          | ECharts Configuration Parameters |
 
-## Parameters
+## Default Parameter Values
 
-<<< @@/charts/bar-simple.ts#parameters-types
+### options
+<<< @@/charts/bar-simple.ts#Default-Options
+
+## Parameter Types
+
+### Data
+<<< @@/charts/bar-simple.ts#Type-Data
+
+### Options
+<<< @@/charts/bar-simple.ts#Type-Options
+
+### EcOptions
+<<< @@/charts/bar-simple.ts#Type-EcOptions

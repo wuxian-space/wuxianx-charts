@@ -1,27 +1,42 @@
-# Gradient Trend Line
+# 面积图（趋势图）
 
 <chart-tags />
 
+## 示例
+
+### 基础示例
+
 ::: demo line-gradient-trend
-
-一个简单的基础示例。
-
 <<< @demos/line-gradient-trend.vue
-
 :::
+
+### 配置过的示例
 
 ::: demo line-gradient-trend-configured
-
-进行了一些配置的示例。
-
 <<< @demos/line-gradient-trend-configured.vue
-
 :::
 
-## 默认参数
+## 参数说明
 
-<<< @@/charts/line-gradient-trend.ts#default-parameters
+| 索引  | 类型                    | 必填  | 默认值                     | 说明             |
+| :---: | ----------------------- | :---: | -------------------------- | ---------------- |
+|   0   | lineGradientTrend       |  是   | -                          | -                |
+|   1   | [Data](#data)           |  是   | -                          | 数据             |
+|   2   | [Options](#options-1)   |  否   | [defaultOptions](#options) | 配置参数         |
+|   3   | [EcOptions](#ecoptions) |  否   | -                          | ECharts 配置参数 |
+
+## 参数默认值
+
+### options
+<<< @@/charts/line-gradient-trend.ts#Default-Options
 
 ## 参数类型
 
-<<< @@/charts/line-gradient-trend.ts#parameters-types
+### Data
+<<< @@/charts/line-gradient-trend.ts#Type-Data
+
+### Options
+<<< @@/charts/line-gradient-trend.ts#Type-Options
+
+### EcOptions
+<<< @@/charts/line-gradient-trend.ts#Type-EcOptions

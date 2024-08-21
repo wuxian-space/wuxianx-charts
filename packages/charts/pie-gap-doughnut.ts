@@ -2,9 +2,11 @@ import { merge } from 'lodash-es'
 import type { EChartsOption, EChartsType, PieSeriesOption } from 'echarts'
 import { toPairs } from './_utils'
 
-// #region parameters-types
+// #region Type-Data
 export type Data = (NumberObject | NumberKeyValuePairArray)[]
+// #endregion Type-Data
 
+// #region Type-Options
 export interface Options {
   /**
    * @see https://echarts.apache.org/option.html#series-pie.radius
@@ -31,11 +33,13 @@ export interface Options {
    */
   padAngle?: number
 }
+// #endregion Type-Options
 
+// #region Type-EcOptions
 export type EcOptions = Partial<EChartsOption>
-// #endregion parameters-types
+// #endregion Type-EcOptions
 
-// #region default-parameters
+// #region Default-Options
 const defaultOptions: Options = {
   radius: ['40%', '70%'],
   hoverFontSize: 20,
@@ -43,7 +47,7 @@ const defaultOptions: Options = {
   hoverColor: 'inherit',
   itemRadius: 7,
 }
-// #endregion default-parameters
+// #endregion Default-Options
 
 export function pieGapDoughnut(data: Data, options?: Options | null, ecOptions?: EcOptions) {
   const { radius, hoverFontSize, padAngle, hoverColor, itemRadius } = merge({}, defaultOptions, options) as Required<Options>

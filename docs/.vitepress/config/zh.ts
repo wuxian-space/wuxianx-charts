@@ -26,6 +26,7 @@ export const zh = defineConfig({
 
     outline: {
       label: '页面导航',
+      level: [2, 4],
     },
 
     lastUpdated: {
@@ -68,7 +69,7 @@ function sidebar(): DefaultTheme.SidebarItem[] {
       items: [
         { text: '基础柱状图', link: 'bar-simple.md' },
         { text: '堆叠柱状图', link: 'bar-stack.md' },
-        { text: '基础条形图', link: 'bar-horizontal.md' },
+        { text: '条形图', link: 'bar-horizontal.md' },
         { text: '堆叠条形图', link: 'bar-horizontal-stack.md' },
       ],
     },

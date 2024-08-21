@@ -42,31 +42,31 @@ function sidebar(): DefaultTheme.SidebarItem[] {
       text: 'Bar',
       base: '/charts/',
       items: [
-        { text: 'BarSimple', link: 'bar-simple.md' },
-        { text: 'BarHorizontal', link: 'bar-horizontal.md' },
-        { text: 'BarStack', link: 'bar-stack.md' },
-        { text: 'BarHorizontalStack', link: 'bar-horizontal-stack.md' },
+        { text: 'Simple Bar', link: 'bar-simple.md' },
+        { text: 'Horizontal Bar', link: 'bar-horizontal.md' },
+        { text: 'Stacked Bar', link: 'bar-stack.md' },
+        { text: 'Horizontal Stacked Bar', link: 'bar-horizontal-stack.md' },
       ],
     },
     {
       text: 'Line',
       base: '/charts/',
       items: [
-        { text: 'LineSimple', link: 'line-simple.md' },
-        { text: 'LineGradientTrend', link: 'line-gradient-trend.md' },
+        { text: 'Simple Line', link: 'line-simple.md' },
+        { text: 'Area Chart (Trend Chart)', link: 'line-gradient-trend.md' },
       ],
     },
     {
       text: 'Pie',
       base: '/charts/',
       items: [
-        { text: 'PieSimple', link: 'pie-simple.md' },
+        { text: 'Simple Pie', link: 'pie-simple.md' },
         {
-          text: 'RingThreeQuarterComment',
+          text: 'Three-Quarter Comment Ring',
           link: 'ring-three-quarter-comment.md',
         },
         {
-          text: 'PieGapDoughnut',
+          text: 'Gap Doughnut',
           link: 'pie-gap-doughnut.md',
         },
       ],
@@ -75,8 +75,8 @@ function sidebar(): DefaultTheme.SidebarItem[] {
       text: 'Radar',
       base: '/charts/',
       items: [
-        { text: 'RadarSimple', link: 'radar-simple.md' },
-        { text: 'RadarRainbow', link: 'radar-rainbow.md' },
+        { text: 'Simple Radar', link: 'radar-simple.md' },
+        { text: 'Rainbow Radar', link: 'radar-rainbow.md' },
       ],
     },
   ]
