@@ -1,7 +1,7 @@
 import { type DefaultTheme, defineConfig } from 'vitepress'
 
 export const en = defineConfig({
-  lang: 'en-US',
+  lang: 'en',
   description: 'A wuxianx-charts website.',
 
   themeConfig: {

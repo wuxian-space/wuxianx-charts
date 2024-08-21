@@ -4,6 +4,7 @@ import { camelCase } from 'lodash-es'
 
 const props = defineProps<{
   name?: string
+  style?: Record<string, any>
 }>()
 
 const { page } = useData()
@@ -16,7 +17,7 @@ function meta(k: string) {
 
 <template>
   <ClientOnly>
-    <div class="charts-meta-tag">
+    <div class="charts-meta-tag" :style="style">
       <div class="charts-meta-tag__item">
         {{ meta('name') }}
       </div>

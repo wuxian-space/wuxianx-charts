@@ -21,7 +21,6 @@ export const shared = defineConfig({
     'en/:rest*': ':rest*',
   },
 
-  appearance: false,
   cleanUrls: true,
   metaChunk: true,
   lastUpdated: true,

@@ -6,6 +6,7 @@ import demos from '../../_demos'
 import demo from './demo.vue'
 import ChartPreview from './chart-preview.vue'
 import chartTags from './chart-tags.vue'
+import Layout from './Layout.vue'
 
 import 'tdesign-vue-next/es/style/index.css'
 
@@ -18,4 +19,6 @@ export default {
     app.component('chart-preview', ChartPreview)
     app.component('chart-tags', chartTags)
   },
+
+  Layout,
 } satisfies Theme

@@ -1,12 +1,37 @@
 <script lang="ts" setup>
-import { useSlots } from 'vue'
+import { nextTick, onMounted, ref, useSlots, watch } from 'vue'
+import { useData } from 'vitepress'
+import { getInstanceByDom } from 'echarts'
 
 const slots = useSlots()
+
+const { isDark } = useData()
+
+const previewContainer = ref()
+
+watch(isDark, () => {
+  setChartDark()
+})
+
+onMounted(async () => {
+  await nextTick()
+  setChartDark()
+})
+
+function setChartDark() {
+  const chart = getInstanceByDom(previewContainer.value?.children?.[0])
+  if (!chart)
+    return
+
+  chart.setOption({
+    darkMode: isDark.value,
+  })
+}
 </script>
 
 <template>
   <div class="demo">
-    <div class="demo-preview">
+    <div ref="previewContainer" class="demo-preview">
       <slot name="component" />
     </div>
 

@@ -1,7 +1,7 @@
 import { type DefaultTheme, defineConfig } from 'vitepress'
 
 export const zh = defineConfig({
-  lang: 'zh-Hans',
+  lang: 'zh',
   description: 'A wuxianx-charts website.',
 
   themeConfig: {

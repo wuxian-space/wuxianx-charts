@@ -1,33 +1,59 @@
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
-import { CodeIcon } from 'tdesign-icons-vue-next'
-import { camelCase } from 'lodash-es'
+import { useData, useRouter } from 'vitepress'
+import { computed, nextTick, onMounted, ref, watch } from 'vue'
+import { CodeIcon, MapAimingIcon } from 'tdesign-icons-vue-next'
+import { camelCase, kebabCase } from 'lodash-es'
+import { getInstanceByDom } from 'echarts'
+import Tag from './chart-tags.vue'
 
 const props = defineProps({
   name: String,
 })
 
 const name = computed(() => camelCase(props.name))
-const version = computed(() => {
-  const v = window.__custom__?.chartsMeta?.charts?.[name.value]?.initialVersion
-
-  return v ? `v${v}` : false
-})
 
 const visible = ref(false)
+
+const { isDark, lang } = useData()
+
+const previewContainer = ref()
+
+watch(isDark, () => {
+  setChartDark()
+})
+
+onMounted(async () => {
+  await nextTick()
+  setChartDark()
+})
+
+function setChartDark() {
+  const chart = getInstanceByDom(previewContainer.value?.children?.[0])
+  if (!chart)
+    return
+
+  chart.setOption({
+    darkMode: isDark.value,
+  })
+}
+
+const router = useRouter()
+function routerTo() {
+  router.go(`/${lang.value}/charts/${kebabCase(props.name)}`)
+}
 </script>
 
 <template>
   <ClientOnly>
     <div class="chart-preview">
       <header class="chart-preview-header">
-        <t-tag class="item" theme="primary" variant="light" size="small">
-          {{ name }}
-        </t-tag>
+        <Tag :name="name" style="font-weight: normal;" />
 
-        <t-tag v-if="version" class="item" theme="warning" variant="light" size="small">
-          {{ version }}
-        </t-tag>
+        <t-button class="docs item" shape="circle" theme="primary" variant="text" @click="routerTo">
+          <template #icon>
+            <MapAimingIcon />
+          </template>
+        </t-button>
 
         <t-button class="view item" shape="circle" theme="primary" variant="text" @click="visible = true">
           <template #icon>
@@ -36,7 +62,7 @@ const visible = ref(false)
         </t-button>
       </header>
 
-      <div class="chart-preview-component">
+      <div ref="previewContainer" class="chart-preview-component">
         <slot name="component" />
       </div>
 
@@ -81,8 +107,11 @@ const visible = ref(false)
       margin-right: 10px;
     }
 
-    .view {
+    .docs {
       margin-left: auto;
+    }
+
+    .view {
       margin-right: 0;
     }
   }
