@@ -39,7 +39,7 @@ function setChartDark() {
 
 const router = useRouter()
 function routerTo() {
-  router.go(`/${lang.value}/charts/${kebabCase(props.name)}`)
+  router.go(`${lang.value === 'en' ? '' : `/${lang.value}`}/charts/${kebabCase(props.name)}`)
 }
 </script>
 
