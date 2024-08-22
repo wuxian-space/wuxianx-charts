@@ -49,7 +49,7 @@ export const zh = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     { text: '指南', link: '/zh/guide/' },
-    { text: '图表概览', activeMatch: '(guide|charts)', link: '/zh/guide/overview' },
+    { text: '图表概览', link: '/zh/guide/overview' },
   ]
 }
 

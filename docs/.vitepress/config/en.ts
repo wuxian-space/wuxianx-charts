@@ -24,7 +24,7 @@ export const en = defineConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     { text: 'Guide', link: '/guide/' },
-    { text: 'Overview', activeMatch: '(guide|charts)', link: '/guide/overview' },
+    { text: 'Overview', link: '/guide/overview' },
   ]
 }
 
